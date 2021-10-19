@@ -1,0 +1,34 @@
+extends ../base.pug
+
+block variables
+  - var template = 'post'
+block content
+  .post
+    .post__wrapper
+      section.post__titles
+        .post__titles__wrapper
+          .post__titles__title=post.data.title
+          .post__titles__date=post.data.date
+
+      each section in post.data.body
+        if section.slice_type == 'title'
+          h2.post__title=section.primary.important
+
+
+        if section.slice_type == 'image_with_caption'
+          section.post__header
+            .post__header__wrapper
+              figure.post__header__media
+                img.post__header__media__image(alt=section.primary.image.alt src=section.primary.image.url)
+                p.post__header__media__caption=section.primary.caption
+
+        if section.slice_type == 'text'
+          section.post__text
+            .post__text__wrapper
+              .post__text__text!=PrismicDOM.RichText.asHtml(section.primary.text)
+
+        if section.slice_type == 'link'
+          section.post__link
+            .post__link__wrapper
+
+              a.post__information__link(href=section.primary.link.url target="_blank")=section.primary.link_text

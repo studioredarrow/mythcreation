@@ -1,0 +1,19 @@
+extends ../base.pug
+
+block variables
+  - var template = 'journal'
+
+block content
+  .journal
+    .journal__wrapper
+      .journal__titles
+        figure.journal__media
+          //img.journal__media__image(alt=media.image.alt src=media.image.url)
+          //h1.journal__title=journal.data.post.title
+      .journal__information
+
+      .journal__posts
+        each post in journal
+          a.journal__post__link(href=Link(post.uid))=post.data.title
+          //.journal__titles__title=post.data.title
+          .journal__titles__date=post.data.date

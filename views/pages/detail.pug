@@ -1,0 +1,32 @@
+extends ../base.pug
+
+block variables
+  - var template = 'detail'
+block content
+  .detail
+    .detail__wrapper
+      figure.detail__media
+        img.detail__media__image(alt=detail.data.image.alt src=detail.data.image.url)
+
+      .detail__information
+        p.detail__information__myth=detail.data.myths.data.title
+
+        //this shows title- if same as myth title it will appear double(most likeley!)
+        h1.detail__information__title=detail.data.title
+
+      .detail__information__content
+        .detail__information__highlights
+          each highlight in detail.data.highlights
+            p.detail__information__highlight
+              svg.detail__information__highlight__icon
+                use(xlink:href=`sprite-${highlight.highlights_icon.toLowerCase()}`)
+
+                span.detail__information__highlight__text=highlight.highlights_text
+
+        .detail__information__list
+          each item in detail.data.information
+            p.detail__information__item
+              strong.detail__information__item__title=item.information_label
+              span.detail__information__item__description=item.information_description
+
+        a.detail__information__link(href=detail.data.link_url.url target="_blank")=detail.data.link_text
