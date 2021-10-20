@@ -9,11 +9,16 @@ block content
       .journal__titles
         figure.journal__media
           //img.journal__media__image(alt=media.image.alt src=media.image.url)
-          //h1.journal__title=journal.data.post.title
+
       .journal__information
+        h1.journal__title= 'Journal'
 
       .journal__posts
         each post in journal
-          a.journal__post__link(href=Link(post.uid))=post.data.title
+          a.journal__posts__link(href=`${"/post/"}${post.uid}`)=post.data.title
           //.journal__titles__title=post.data.title
-          .journal__titles__date=post.data.date
+          .journal__posts__date=post.data.date
+
+          .journal__posts__media
+            figure.journal__posts__media
+              img.journal__posts__media__image(alt=post.data.image.alt src=post.data.image.url)

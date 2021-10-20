@@ -33,7 +33,7 @@ const handleLinkResolver = doc => {
   }
 
   if (doc.type === 'post') {
-    return "/post/ + doc.uid"
+    return `/post/${doc.uid}`
   }
 
   if (doc.type === 'myths') {
@@ -134,21 +134,12 @@ app.get('/journal', async (req, res) => {
   const defaults = await handleRequest(api)
   const home = await api.getSingle('home')
 
-  const {results: journal} = await api.query(Prismic.Predicates.at('document.type', 'post'), {
-    fetchLinks: 'post.image',
+  const {results: journal } = await api.query(Prismic.Predicates.at('document.type', 'post'), {
+    fetchLinks: 'post.getByUID',
     // Order by last publication date from most recent to oldest
     orderings : '[document.last_publication_date desc]',
     pageSize : 50
   })
-
-  // journal.forEach(post => {
-  //   console.log(post.data)
-  // })
-  console.log(journal.data)
-  // journal.forEach(post => {
-  //   console.log(post.data.post)
-  // })
-
 
   res.render('pages/journal', {
     ...defaults,
@@ -188,14 +179,13 @@ app.get('/detail/:uid', async (req, res) => {
 })
 
 app.get('/post/:uid', async (req, res) => {
-  //console.log(req.params.uid)
+//  console.log(req.params.uid)
   const api = await initApi(req)
   const defaults = await handleRequest(api)
 
   const post = await api.getByUID('post', req.params.uid, {
     fetchLinks: 'post.title'
   })
-
 
 //  console.log(post.data.body)
 
