@@ -1,0 +1,12 @@
+body {
+  font-family: $font-object-sans;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: $color-red;
+
+  @include media('<phone') {
+    font-size: 100px;
+  }
+}

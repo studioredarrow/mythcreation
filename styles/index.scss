@@ -1,5 +1,35 @@
-$color-white: #666666;
+@import './base/reset';
 
-.class {
-  color: $color-white;
-}
+@import './utils/variables';
+@import './utils/functions';
+@import './utils/mixins';
+@import './utils/vendors';
+@import './utils/responsive';
+@import './utils/grid';
+
+@import './base/fonts';
+@import './base/base';
+
+@import './components/preloader';
+
+@import './layout/navigation';
+
+@import './shared/descriptions';
+@import './shared/titles';
+
+@import './pages/about/about';
+@import './pages/about/content';
+@import './pages/about/gallery';
+@import './pages/about/highlight';
+@import './pages/about/what';
+
+@import './pages/detail/artwork';
+@import './pages/detail/detail';
+
+@import './pages/home/home';
+
+@import './pages/journal/journal';
+
+@import './pages/myths/myths';
+
+@import './pages/post/post';

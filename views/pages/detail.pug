@@ -14,6 +14,19 @@ block content
         //this shows title- if same as myth title it will appear double(most likeley!)
         h1.detail__information__title=detail.data.title
 
+      //move this section to create the pics elsewhere
+      each section in detail.data.body
+        if section.slice_type == 'artwork'
+          section.detail__information__artwork
+            .detail__information__artwork__wrapper
+              p.detail__information__artwork__title=section.primary.label
+
+              .detail__information__artwork__description!=PrismicDOM.RichText.asHtml(section.primary.description)
+
+              figure.detail__information__artwork__media
+                img.detail__information__artwork__media__image(alt=section.primary.artwork.alt src=section.primary.artwork.url)
+
+
       .detail__information__content
         .detail__information__highlights
           each highlight in detail.data.highlights

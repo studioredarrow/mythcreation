@@ -1,0 +1,30 @@
+.preloader{
+  @extend %cover;
+  @extend %grid;
+  align-items: center;
+  background-color: $color-red;
+  color: $color-pink;
+  display: flex;
+  // justify-content: center;
+  // text-align: center;
+//  width: 100vw;
+//  height: 100vh;
+  margin: 0px auto;
+  padding: 0 15px 0 15px;
+}
+.preloader__text{
+  @extend %grid;
+
+  width: 40.17094%;
+//  float: left;
+  margin-left: 20.17094%;
+}
+.preloader__number{
+  @extend %title-600;
+
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  text-align: right;
+  //transform: translateX(-50%);
+}

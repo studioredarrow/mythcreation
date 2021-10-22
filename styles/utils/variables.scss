@@ -1,0 +1,21 @@
+$color-red: #ff0000;
+$color-pink: #edd8d8;
+$color-grey: #cacaca;
+$color-paper: #ede6df;
+
+$color-yellow: #ffda00;
+$color-white: #fff;
+
+$font-object-sans: 'Object Sans';
+$font-voyage: 'Voyage';
+
+//$ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+$ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+
+$z-indexes: (
+//  'preloader',
+//  'transition',
+  'navigation',
+  'content',
+  'canvas'
+);

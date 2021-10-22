@@ -16,6 +16,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended : false }))
 app.use(methodOverride())
 app.use(errorHandler())
+app.use(express.static(path.join(__dirname, 'public')))
 
 const Prismic = require('@prismicio/client')
 const PrismicDOM = require('prismic-dom')
@@ -171,7 +172,7 @@ app.get('/detail/:uid', async (req, res) => {
     fetchLinks: 'myths.title'
   })
 
-//  console.log(detail)
+  //console.log(detail.data)
   res.render('pages/detail', {
     ...defaults,
     detail
