@@ -11,21 +11,23 @@ block content
       .detail__information
         p.detail__information__myth=detail.data.myths.data.title
 
-        //this shows title- if same as myth title it will appear double(most likeley!)
-        h1.detail__information__title=detail.data.title
+
 
       //move this section to create the pics elsewhere
       each section in detail.data.body
         if section.slice_type == 'artwork'
-          section.detail__information__artwork
+          section.detail__information__artwork(class=`${section.primary.type === 'Left' ? 'detail__information__artwork--Left' : 'detail__information__artwork--Right'}`)
             .detail__information__artwork__wrapper
-              p.detail__information__artwork__title=section.primary.label
+              .detail__information__artwork__box
+                p.detail__information__artwork__title=section.primary.label
 
-              .detail__information__artwork__description!=PrismicDOM.RichText.asHtml(section.primary.description)
+                .detail__information__artwork__description!=PrismicDOM.RichText.asHtml(section.primary.description)
 
               figure.detail__information__artwork__media
                 img.detail__information__artwork__media__image(alt=section.primary.artwork.alt src=section.primary.artwork.url)
 
+                //this shows title- if same as myth title it will appear double(most likeley!)
+      h1.detail__information__title!=detail.data.title.replace(/\n/, '<br>')
 
       .detail__information__content
         .detail__information__highlights
@@ -34,7 +36,7 @@ block content
               svg.detail__information__highlight__icon
                 use(xlink:href=`sprite-${highlight.highlights_icon.toLowerCase()}`)
 
-                span.detail__information__highlight__text=highlight.highlights_text
+                span.detail__information__highlight__text!=highlight.highlights_text.replace(/\n/, '<br>')
 
         .detail__information__list
           each item in detail.data.information

@@ -1,3 +1,9 @@
+%title-35 {
+  font-family: $font-voyage;
+  font-size: 3.5rem;
+  font-weight: normal;
+}
+
 %title-60 {
   font-family: $font-voyage;
   font-size: 6rem;
@@ -14,6 +20,7 @@
   font-family: $font-voyage;
   font-size: 20rem;
   font-weight: normal;
+  line-height: 0.8;
 }
 
 %title-600 {
@@ -24,7 +31,7 @@
 
 %title-heavy {
   font-family: $font-object-sans;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 800;
   text-transform: uppercase;

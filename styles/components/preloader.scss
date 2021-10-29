@@ -1,22 +1,24 @@
 .preloader{
   @extend %cover;
-  @extend %grid;
+
   align-items: center;
   background-color: $color-red;
   color: $color-pink;
-  display: flex;
+  display: none;
   // justify-content: center;
   // text-align: center;
-//  width: 100vw;
-//  height: 100vh;
+  // width: 100vw;
+  // height: 100vh;
   margin: 0px auto;
-  padding: 0 15px 0 15px;
+
 }
 .preloader__text{
-  @extend %grid;
+  @extend %description-12-bold;
+  @extend %cover;
 
+  transform: translateY(50%);
   width: 40.17094%;
-//  float: left;
+  float: left;
   margin-left: 20.17094%;
 }
 .preloader__number{

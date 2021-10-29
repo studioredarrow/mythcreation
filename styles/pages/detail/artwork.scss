@@ -1,22 +1,95 @@
 //move this section to create the pics elsewhere
 
 .detail__information__artwork{
+//  width: 70%;
 
+  &:first-child {
+    margin-top: 20rem;
+  }
+
+  &:last-child {
+    margin-bottom: 4;
+  }
 }
 .detail__information__artwork__wrapper{
 
+  align-items: baseline;
+  display: flex;
+  flex-direction: row;
+  left: 30%;
+  justify-content: center;
+
+
+  .detail__information__artwork--Right & {
+    flex-direction:row-reverse;
+  }
+}
+
+.detail__information__artwork__box {
+  display: flex;
+  width: 50rem;
+//  justify-content: center;
+  //align-content: center;
 }
 .detail__information__artwork__title{
-
+  @extend %title-35;
+  width: 25rem;
+  margin-left: 7rem;
 }
 
 .detail__information__artwork__description{
+  @extend %description-10;
+  width: 40%;
+  padding-bottom: 4rem;
 
+  p:not(:first-child) {
+    margin-top: 2.5rem;
+  }
 }
 
 .detail__information__artwork__media{
+  position: relative;
+  height: 50rem;
+  margin: 4rem;
+  //position: relative;
+  width: 50rem;
+//  max-width: auto;
+
+  //height:auto;
+  // .detail__information__artwork:nth-child(3) & {
+  //   height: 20rem;
+  //   margin-left: 20rem;
+  //   position: relative;
+  //   width: 20rem;
+  // }
+  //
+  // .detail__information__artwork:nth-child(4) & {
+  //   height: 20rem;
+  //   margin-left: 20rem;
+  //   position: relative;
+  //   width: 20rem;
+  // }
+  // &:first-child {
+  //   margin-top: 20rem;
+  // }
+  // &:not(:first-child) {
+  //   margin-top: 0rem;
+  // }
+  &:first-child {
+    margin-top: auto;
+  }
+  &:not(:first-child) {
+    margin-top: 4rem;
+  }
+  &:last-child {
+    margin-bottom: 4rem;
+  }
 
 }
 .detail__information__artwork__media__image{
+  @extend %cover;
+
+  object-fit: contain;
+
 
 }

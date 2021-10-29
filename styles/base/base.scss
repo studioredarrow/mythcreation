@@ -1,12 +1,27 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: calc(100vw / 1920 *10);
+}
+
 body {
   font-family: $font-object-sans;
   font-size: 1.2rem;
   font-style: normal;
   font-weight: normal;
-  text-transform: uppercase;
   color: $color-red;
 
   @include media('<phone') {
     font-size: 100px;
   }
+}
+
+a {
+  color: inherit;
+  outline: none;
+  text-decoration: none;
 }
