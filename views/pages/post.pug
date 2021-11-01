@@ -7,11 +7,15 @@ block content
     .post__wrapper
       section.post__titles
         .post__titles__wrapper
-          .post__titles__title=post.data.title
-          .post__titles__date=post.data.date
+          .post__titles__title!=post.data.title.replace(/\n/, '<br>')
+          .post__titles__title2!=post.data.title2.replace(/\n/, '<br>')
+
           .post__titles__media
             figure.post__titles__media
               img.post__titles__media__image(alt=post.data.image.alt src=post.data.image.url)
+
+          .post__titles__date=post.data.date
+
       each section in post.data.body
         if section.slice_type == 'title'
           h2.post__title=section.primary.important
@@ -27,7 +31,7 @@ block content
         if section.slice_type == 'text'
           section.post__text
             .post__text__wrapper
-              .post__text__text!=PrismicDOM.RichText.asHtml(section.primary.text)
+              span.post__text__text!=PrismicDOM.RichText.asHtml(section.primary.text).replace(/\n/, '<br>')
 
         if section.slice_type == 'link'
           section.post__link
