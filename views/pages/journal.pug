@@ -14,11 +14,14 @@ block content
         h1.journal__title= 'Journal'
 
       .journal__posts
-        each post in journal
-          a.journal__posts__link(href=`${"/post/"}${post.uid}`)=post.data.title
-          //.journal__titles__title=post.data.title
-          .journal__posts__date=post.data.date
+        .journal__posts__wrapper
+          each post in journal
+            .journal__posts__row
 
-          .journal__posts__media
-            figure.journal__posts__media
-              img.journal__posts__media__image(alt=post.data.image.alt src=post.data.image.url)
+              .journal__posts__date=post.data.date
+
+              a.journal__posts__link(href=`${"/post/"}${post.uid}`)=post.data.title
+
+              .journal__posts__media
+            //  figure.journal__posts__media
+                img.journal__posts__media__image(alt=post.data.image.alt src=post.data.image.url)
