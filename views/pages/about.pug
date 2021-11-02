@@ -10,6 +10,13 @@ block content
         h1.about__titles=about.data.title
 
       each section in about.data.body
+
+        if section.slice_type == 'title'
+          section.about__title__wrapper
+            p.about__title__label=section.primary.label
+
+            h2.about__title__question=section.primary.question
+
         if section.slice_type == 'what_is_myth_creation'
           section.about__what__wrapper
             p.about__what__label=section.primary.label

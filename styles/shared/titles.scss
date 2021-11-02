@@ -23,9 +23,22 @@
   line-height: 0.8;
 }
 
+%title-450 {
+  font-family: $font-voyage;
+  font-size: 45rem;
+  font-weight: normal;
+  line-height: 0.8;
+}
+
 %title-600 {
   font-family: $font-voyage;
   font-size: 60rem;
+  font-weight: normal;
+}
+
+%title-full {
+  font-family: $font-voyage;
+  font-size: 100vh;
   font-weight: normal;
 }
 

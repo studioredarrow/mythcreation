@@ -1,19 +1,60 @@
 .about{
-  body {
-    font-family: $font-voyage;
-    font-size: 3.6rem;
-    font-style: normal;
-    font-weight: normal;
-  }
+  @extend %cover;
+//  @extend %center;
+
+  background: $color-paper;
 }
 .about__wrapper{
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 100%;
+
+  display:flex;
+  float: left;
 
 }
 .about__titles{
+  @extend %title-full;
+  @extend %cover;
+  white-space:nowrap;
+  position: absolute;
+  color: $color-emboss;
+  z-index: -10;
+}
+
+.about__title__wrapper{
+  position: absolute;
+  bottom: 2rem;
+  text-align: left;
+  left: 4rem;
+  display: flex;
+
+  white-space: nowrap;
+//  transform: rotate(-90deg);
+}
+.about__title__label{
+  @extend %description-12-bold;
+  @extend %center;
+  position: absolute;
 
 }
 
 
-.home__button{
+.about__title__question{
+  display: inline;
+  @extend %title-200;
+  transform: translateX(-50%) rotate(-90deg);
+}
 
+.home__button{
+  @extend %description-16-bold;
+  width: 30rem;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  bottom: 5rem;
+  top: 50%;
+  letter-spacing: 0.05rem;
+  transform: translateX(-50%);
 }

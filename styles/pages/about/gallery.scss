@@ -1,9 +1,14 @@
 
 .about__gallery{
-
+  @extend %center;
+  margin-left: 50rem;
 }
 .about__gallery__wrapper{
-
+  display: grid;
+  grid-template-columns: 40rem 40rem 40rem 40rem;
+  grid-template-rows: 30rem 30rem 30rem 30rem;
+  justify-content: center;
+  object-fit: contain;
 }
 
 .about__gallery__media{

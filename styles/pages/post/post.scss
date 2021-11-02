@@ -5,13 +5,13 @@
 }
 .post__wrapper{
   text-align: left;
-
+  overflow: hidden;
 
 }
 .post__titles{
   display: flex;
   flex-direction: column;
-  margin-left: 20%
+  margin-left: 20%;
 }
 .post__titles__wrapper{
   //position: relative;
@@ -19,18 +19,24 @@
 .post__titles__title{
   @extend %description-35-bold-slanted;
   padding-top: 5%;
+
   margin-bottom: 4rem;
   position: absolute;
 }
 .post__titles__title2{
 
-  @extend %title-200;
-
+  @extend %title-450;
+  @extend %cover;
+  //color: $color-emboss;
   padding-top: 8%;
-  width: 60%;
-
-
-
+  width: 100%;
+  margin-bottom: 10rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: visible;
 }
 
 //header image
@@ -42,8 +48,8 @@
   justify-content: center;
 }
 .post__titles__media__image{
-  width: 30%;
-
+  width: 35%;
+  padding-top: 4rem;
 }
 .post__titles__date{
 
@@ -52,10 +58,23 @@
 //slicetype-title
 .post__title{
 
-  @extend %description-12-bold;
-  margin-top: 4rem;
+  @extend %title-200;
+  margin-top: 10%;
   margin-bottom: 4rem;
-  margin-left: 20%;
+  margin-left: 0;
+  line-height: 1;
+  //color: $color-emboss;
+  white-space: nowrap;
+  word-wrap: normal;
+  align-items: center;
+  justify-content: margin-left;
+  display:grid;
+
+  &:first-child {
+
+    margin-top:15rem;
+
+  }
 }
 
 
@@ -94,6 +113,7 @@
 
 }
 .post__text__wrapper{
+  margin-top: 8rem;
   margin-left: 25%;
   width: 50%;
 }

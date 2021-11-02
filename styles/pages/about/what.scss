@@ -1,11 +1,16 @@
 .about__what__wrapper{
-
+  margin-left: 40rem;
+  display: flex;
 }
 .about__what__label{
-
+  @extend %description-12-bold;
+  margin-right: 4rem;
 }
 
 .about__what__text{
+  @extend %description-16;
+  word-wrap: normal;
+  width: 45rem;
 
 }
 
@@ -13,5 +18,10 @@
 
 }
 .about__what__media__image{
-
+  @extend %center;
+  position: absolute;
+  width: 50%;
+  top: 50%;
+  height: auto;
+  object-fit: contain;
 }
