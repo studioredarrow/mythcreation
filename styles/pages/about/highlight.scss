@@ -10,5 +10,8 @@
 }
 
 .about__highlight__highlight{
-
+  @extend %title-200;
+  width: 80rem;
+  margin-left: 20rem;
+  margin-top: 50%;
 }

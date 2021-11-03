@@ -10,7 +10,7 @@
   // width: 100vw;
   // height: 100vh;
   margin: 0px auto;
-
+  z-index: z('preloader');
 }
 .preloader__text{
   @extend %description-12-bold;

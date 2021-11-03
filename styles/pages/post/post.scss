@@ -115,7 +115,7 @@
 .post__text__wrapper{
   margin-top: 8rem;
   margin-left: 25%;
-  width: 50%;
+  width: 40%;
 }
 .post__text__text{
   line-height: 1.5;
@@ -132,7 +132,11 @@
   }
 
   li {
+    display: list-item;
+    list-style-type: disc;
+    list-style-position: inside;
     margin-left: 4rem;
+
   }
   ol {
     margin-left: 4rem;

@@ -1,25 +1,46 @@
 .about{
-  @extend %cover;
-//  @extend %center;
-
+//   @extend %cover;
+// //  @extend %center;
+//   overflow: hidden;
   background: $color-paper;
+  width: 100vh;
+  height: 100vw;
+  transform: rotate(-90deg) translateX(-100vh);
+  transform-origin: top left;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+
+  scrollbar-width: none;
+  -ms-overflow-style:none;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
 .about__wrapper{
-  overflow-x: scroll;
-  overflow-y: hidden;
-  height: 100%;
-
+  // overflow-x: scroll;
+  // overflow-y: hidden;
+//  height: 100%;
+  width: 5000px;
   display:flex;
-  float: left;
-
+  flex-direction: row;
+  transform: rotate(90deg) translateY(-100vh);
+  transform-origin: top left;
+//  float: left;
+//  vertical-align: top;
 }
 .about__titles{
   @extend %title-full;
-  @extend %cover;
+  //@extend %cover;
   white-space:nowrap;
   position: absolute;
   color: $color-emboss;
   z-index: -10;
+  line-height: .6;
+  opacity: .8;
+  top: 0;
 }
 
 .about__title__wrapper{
@@ -31,6 +52,7 @@
 
   white-space: nowrap;
 //  transform: rotate(-90deg);
+
 }
 .about__title__label{
   @extend %description-12-bold;
@@ -41,7 +63,9 @@
 
 
 .about__title__question{
-  display: inline;
+  display: flex;
+  flex-direction: row;
+  margin-left: 5rem;
   @extend %title-200;
   transform: translateX(-50%) rotate(-90deg);
 }
@@ -49,11 +73,11 @@
 .home__button{
   @extend %description-16-bold;
   width: 30rem;
-  height: 6rem;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  bottom: 5rem;
+//  bottom: 5rem;
+  margin-left: 20rem;
   top: 50%;
   letter-spacing: 0.05rem;
   transform: translateX(-50%);
