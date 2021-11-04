@@ -70,15 +70,27 @@
   transform: translateX(-50%) rotate(-90deg);
 }
 
-.home__button{
+.about__button{
   @extend %description-16-bold;
   width: 30rem;
-  display: flex;
-  align-items: center;
+//  display: flex;
+  //align-items: center;
   justify-content: flex-end;
 //  bottom: 5rem;
-  margin-left: 20rem;
+//  margin-left: 0rem;
+  bottom: -115rem;
+  left: -96rem;
   top: 50%;
+  position: relative;
   letter-spacing: 0.05rem;
-  transform: translateX(-50%);
+  padding: 1rem;
+  //transform: translateX(-50%);
+  .about__button__icon{
+    position: absolute;
+    //@extend %cover;
+    transform: translateY(-40%) translateX(-75%);
+    width: 15rem;
+    height: 8rem;
+  }
+
 }

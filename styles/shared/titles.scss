@@ -38,7 +38,7 @@
 
 %title-full {
   font-family: $font-voyage;
-  font-size: 160rem;
+  font-size: 135rem;
   font-weight: normal;
 }
 
@@ -48,4 +48,8 @@
   font-style: normal;
   font-weight: 800;
   text-transform: uppercase;
+
+  @include media('<phone') {
+    font-size: 2.8rem;
+  }
 }

@@ -1,6 +1,7 @@
 .journal{
   @extend %description-16;
-  @extend %cover;
+  @extend %center;
+//  position: absolute;
 
   align-items: margin-right;
 //  display: flex;
@@ -10,9 +11,11 @@
   background: $color-paper;
 }
 .journal__wrapper{
+  @extend %cover;
   // display: flex;
   // flex-direction: column;
 //  position: relative;
+  display: block;
 }
 .journal__titles{
 
@@ -26,8 +29,9 @@
 }
 .journal__title{
   @extend %title-200;
+
   text-align: right;
-  margin-top: 10rem;
+//  margin-top: 5%;
   padding-top: 40rem;
   padding-right: 5rem;
 //  margin-right:10rem;

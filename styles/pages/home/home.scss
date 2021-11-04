@@ -1,8 +1,20 @@
 .home{
-
+  @extend %center;
+  overflow: hidden;
+  text-align: center;
 }
 .home__wrapper{
+  @extend %cover;
 
+  &:before,
+  &:after {
+  content: '';
+  height: 35rem;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  }
 }
 .home__gallery{
 
@@ -14,5 +26,30 @@
 
 }
 .home__button{
+  @extend %cover;
+  @extend %description-16-bold;
+  align-items: center;
+  bottom: 5rem;
+  display: flex;
+  margin-left: 0;
+  padding: 1rem;
+  left: 50%;
+  letter-spacing: 0.05rem;
+  //position: absolute;
+  transform: translateX(-50%);
+  position: relative;
+  justify-content: center;
+  margin-bottom: 15rem;
 
+  .home__button__icon{
+    display: flex;
+    align-items: center;
+    margin-left: 8rem;
+    //left: 50%;
+    bottom: 2rem;
+    width:28rem;
+
+    transform: translateX(-50%) translateY(50%);
+    position: absolute;
+  }
 }

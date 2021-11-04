@@ -1,13 +1,15 @@
 .detail{
   //@extend %center;
-//  @extend %cover;
+  @extend %cover;
   background: $color-paper;
 
 }
 .detail__wrapper{
-  // @extend %cover;
-  // position: relative;
-
+  @extend %center;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display:block;
 }
 .detail__media{
 
@@ -115,4 +117,37 @@
   display: inline-block;
   margin-top: 3rem;
   margin-bottom: 10rem;
+}
+
+.detail__button{
+  @extend %cover;
+  @extend %description-16-bold;
+//  display: flex;
+  align-items: center;
+  align-content: center;
+//  bottom: 5rem;
+  //display: flex;
+  left: 50%;
+  width: auto;
+  //justify-content: center;
+  padding: 1rem;
+//  position: relative;
+//  margin: 5rem;
+//  transform: translateX(-50%);
+//  width: 12rem;
+  z-index: 10;
+  margin-bottom: 15rem;
+}
+
+.detail__button__icon{
+  position: absolute;
+  //width: 25rem;
+  // bottom: 2rem;
+  // left:50%;
+  // top:0;
+  width: 10rem;
+  height: 10rem;
+  transform: translateY(-40%) translateX(-80%);
+  // @extend %cover;
+  // z-index: 9;
 }

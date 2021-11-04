@@ -2,7 +2,7 @@
 .about__gallery{
   @extend %center;
   margin-left: 50rem;
-  margin-top: 20rem;
+  margin-top: 3%;
 }
 .about__gallery__wrapper{
   display: grid;
@@ -10,6 +10,7 @@
   grid-template-rows: 30rem 30rem 30rem 30rem;
   justify-content: center;
   object-fit: contain;
+  margin-right: 15rem;
 }
 
 .about__gallery__media{
