@@ -1,32 +1,48 @@
 .preloader{
+  @extend %center;
   @extend %cover;
-
+  position: absolute;
   align-items: center;
   background-color: $color-red;
   color: $color-pink;
-  display: none;
+  width: 100vw;
+  height: 100vh;
+  //display: none;
   // justify-content: center;
-  // text-align: center;
+  text-align: center;
   // width: 100vw;
   // height: 100vh;
   margin: 0px auto;
   z-index: z('preloader');
 }
 .preloader__text{
-  @extend %description-12-bold;
-  @extend %cover;
 
+  @extend %cover;
+  font-size: 0;
   transform: translateY(50%);
   width: 40.17094%;
   float: left;
   margin-left: 20.17094%;
+
+  span {
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  span span {
+    @extend %description-12-bold;
+  }
 }
 .preloader__number{
   @extend %title-600;
-
+  overflow: hidden;
   position: absolute;
   right: 2rem;
   bottom: 2rem;
   text-align: right;
   //transform: translateX(-50%);
+}
+
+.preloader__number__text{
+  display: inline-block;
 }

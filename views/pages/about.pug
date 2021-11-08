@@ -24,7 +24,7 @@ block content
             p.about__what__text=section.primary.text
 
             figure.about__what__media
-              img.about__what__media__image(alt=section.primary.image.alt src=section.primary.image.url)
+              img.about__what__media__image(alt=section.primary.image.alt data-src=section.primary.image.url)
 
 
         if section.slice_type == 'content'
@@ -35,7 +35,7 @@ block content
               .about__content__description_how!=PrismicDOM.RichText.asHtml(section.primary.description_how)
 
               figure.about__content__media
-                img.about__content__media__image(alt=section.primary.image.alt src=section.primary.image.url)
+                img.about__content__media__image(alt=section.primary.image.alt data-src=section.primary.image.url)
 
         if section.slice_type == 'highlight'
           section.about__highlight
@@ -51,7 +51,7 @@ block content
             .about__gallery__wrapper
               each media in section.items
                 figure.about__gallery__media
-                  img.about__gallery__media__image(alt=media.image.alt src=media.image.url)
+                  img.about__gallery__media__image(alt=media.image.alt data-src=media.image.url)
 
       .about__button
         a(href=Link(about.data.myths))= about.data.button

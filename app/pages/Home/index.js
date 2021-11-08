@@ -10,6 +10,11 @@ export default class Home extends Page{
         button: '.home__button'
       }
     })
+  }
 
+  create () {
+    super.create()
+
+    this.elements.link.addEventListener('click', _ => console.log('Click me, click me, one more time!'))
   }
 }

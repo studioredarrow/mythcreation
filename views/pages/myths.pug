@@ -16,7 +16,7 @@ block content
             each detail in myth.data.details
               a.myths__gallery__link(href=Link(detail.details_myth))
                 figure.myths__gallery__media
-                  img.myths__gallery__media__image(alt=detail.details_myth.data.image.alt src=detail.details_myth.data.image.url)
+                  img.myths__gallery__media__image(alt=detail.details_myth.data.image.alt data-src=detail.details_myth.data.image.url)
 
       .myths__content
         each myth in myths

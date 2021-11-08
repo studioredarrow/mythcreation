@@ -6,7 +6,7 @@ block content
   .detail
     .detail__wrapper
       figure.detail__media
-        img.detail__media__image(alt=detail.data.image.alt src=detail.data.image.url)
+        img.detail__media__image(alt=detail.data.image.alt data-src=detail.data.image.url)
 
       .detail__information
         p.detail__information__myth=detail.data.myths.data.title
@@ -24,7 +24,7 @@ block content
                 .detail__information__artwork__description!=PrismicDOM.RichText.asHtml(section.primary.description)
 
               figure.detail__information__artwork__media
-                img.detail__information__artwork__media__image(alt=section.primary.artwork.alt src=section.primary.artwork.url)
+                img.detail__information__artwork__media__image(alt=section.primary.artwork.alt data-src=section.primary.artwork.url)
 
                 //this shows title- if same as myth title it will appear double(most likeley!)
       h1.detail__information__title!=detail.data.title.replace(/\n/, '<br>')
