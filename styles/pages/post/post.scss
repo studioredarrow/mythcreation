@@ -1,5 +1,6 @@
 .post{
   @extend %cover;
+  @extend %page;
   background: $color-paper;
 
 }

@@ -1,0 +1,19 @@
+/*! components/Preloader */
+
+/*! lodash/each */
+
+/*! pages/About */
+
+/*! pages/Detail */
+
+/*! pages/Home */
+
+/*! pages/Journal */
+
+/*! pages/Myths */
+
+/*! pages/Post */
+
+/*!**********************!*\
+  !*** ./app/index.js ***!
+  \**********************/

@@ -1,7 +1,7 @@
 .about__content{
+  @extend %page;
   display: flex;
   margin-left: 30rem;
-
 }
 .about__content__wrapper{
   top: 5%;

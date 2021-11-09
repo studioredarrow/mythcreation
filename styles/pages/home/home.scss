@@ -1,5 +1,6 @@
 .home{
   @extend %center;
+  @extend %page;
   overflow: hidden;
   text-align: center;
 }
@@ -20,10 +21,15 @@
 
 }
 .home__gallery__media{
-
+  width: 100%;
 }
 .home__gallery__media__image{
-
+  @extend %center;
+  display: flex;
+  width: 100rem;
+  height: 60rem;
+  justify-content: center;
+  align-items: center;
 }
 .home__button{
   @extend %cover;

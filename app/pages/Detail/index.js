@@ -5,8 +5,12 @@ export default class Detail extends Page{
     super({
       id: 'detail',
 
-      element: '.detail'
-
+      element: '.detail',
+      elements: {
+        wrapper: '.detail__wrapper',
+        navigation: document.querySelector('.navigation'),
+        title: '.detail__information__title'
+      }
     })
 
 
