@@ -5,12 +5,7 @@ export default class Post extends Page{
     super({
       id: 'post',
 
-      element: '.post',
-      elements: {
-        wrapper: '.post__wrapper',
-        navigation: document.querySelector('.navigation'),
-        title: '.post__titles'
-      }
+      element: '.post'
     })
 
   }

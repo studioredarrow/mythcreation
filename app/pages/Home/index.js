@@ -6,7 +6,6 @@ export default class Home extends Page{
       id: 'home',
       element: '.home',
       elements: {
-        wrapper: '.home__wrapper',
         navigation: document.querySelector('.navigation'),
         button: '.home__button'
       }
@@ -16,6 +15,6 @@ export default class Home extends Page{
   create () {
     super.create()
 
-  //  this.elements.link.addEventListener('click', _ => console.log('Click me, click me, one more time!'))
+    this.elements.link.addEventListener('click', _ => console.log('Click me, click me, one more time!'))
   }
 }

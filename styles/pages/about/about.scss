@@ -1,17 +1,15 @@
 .about{
-  @extend %cover;
+//   @extend %cover;
 // //  @extend %center;
 //   overflow: hidden;
-  @extend %page;
-
   background: $color-paper;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  position: absolute;
   width: 100vh;
   height: 100vw;
   transform: rotate(-90deg) translateX(-100vh);
   transform-origin: top left;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
   opacity: 0;
   scrollbar-width: none;
   -ms-overflow-style:none;
@@ -22,20 +20,6 @@
 }
 
 .about__wrapper{
-  @extend %cover;
-  @extend %page;
-  width: 100vh;
-  height: 100vw;
-  // transform: rotate(-90deg) translateX(-100vh);
-  // transform-origin: top left;
-  // overflow-y: scroll;
-  // overflow-x: hidden;
-  position: absolute;
-
-}
-
-
-.about__wrapper__inner{
   // overflow-x: scroll;
   // overflow-y: hidden;
 //  height: 100%;
@@ -47,7 +31,6 @@
 //  float: left;
 //  vertical-align: top;
 }
-
 .about__titles{
   @extend %title-full;
   //@extend %cover;
