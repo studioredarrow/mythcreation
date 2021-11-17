@@ -1,7 +1,9 @@
 .about__what__wrapper{
-  margin-left: 25%;
+
   display: flex;
-  margin-top: 10rem;
+  justify-content: center;
+  margin: auto;
+  // margin-top: 10rem;
 }
 .about__what__label{
   @extend %description-12-bold;
@@ -17,14 +19,17 @@
 }
 
 .about__what__media{
+  margin-left: 15rem;
+  margin-right: 15rem;
 
 }
 .about__what__media__image{
-  @extend %center;
-
-  width: 80rem;
-  margin-top: 20%;
-  height: auto;
-  margin-left: 16rem;
-  object-fit: contain;
+  // @extend %center;
+  //
+  // width: 80rem;
+  // margin-top: 20%;
+  // height: auto;
+  // margin-left: 16rem;
+  // object-fit: contain;
+  max-height: 80rem;
 }

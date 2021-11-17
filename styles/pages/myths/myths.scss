@@ -1,34 +1,67 @@
 .myths{
-
+  @extend %cover;
+  background: $color-paper;
 }
 .myths__wrapper{
+  width: 100vw;
+  height: 100vh;
+  margin-top: 10%;
 
 }
 .myths__titles{
-
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: 5rem;
+  margin-top: 10%;
+  margin-right: 5rem;
+  position: absolute;
+  width: -webkit-fill-available;
 }
 
 .myths__titles__label{
+  margin-top: 5rem;
+  height: 2rem;
 
+  @extend %description-12-bold;
 }
 .myths__titles__title{
-
+  @extend %title-160;
+  height: 20rem;
+  border-bottom: 1px solid $color-red;
 }
 
 .myths__gallery{
+  width: 100vw;
+  //height: 100vh;
+  top: 0;
 
 }
 .myths__gallery__wrapper{
+  &:last-child{
+    margin-bottom: 15rem;
+  }
 
 }
 
 .myths__gallery__link{
-
+  pointer-events: cursor;
+  display: flex;
+  flex-direction: column;
 }
 .myths__gallery__media{
+  // width: 100vw;
+  // display: flex;
 
 }
+
 .myths__gallery__media__image{
+  height: 27rem;
+  top: 0;
+  width: 100%;
+  object-fit: cover;
+  // margin-left: 5rem;
+  // margin-right: 5rem;
 
 }
 

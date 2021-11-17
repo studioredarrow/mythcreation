@@ -1,8 +1,12 @@
 .about__highlight{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
 
 }
 .about__highlight__wrapper{
-
+  width: 122rem;
 }
 
 .about__highlight__label{
@@ -11,7 +15,6 @@
 
 .about__highlight__highlight{
   @extend %title-200;
-  width: 80rem;
-  margin-left: 20rem;
-  margin-top: 50%;
+
+
 }

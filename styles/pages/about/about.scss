@@ -2,15 +2,24 @@
 //   @extend %cover;
 // //  @extend %center;
 //   overflow: hidden;
+
   background: $color-paper;
+
+
   width: 100vh;
   height: 100vw;
   transform: rotate(-90deg) translateX(-100vh);
   transform-origin: top left;
   overflow-y: scroll;
   overflow-x: hidden;
-  position: absolute;
+  //position: absolute;
+
+
+//This is for javascript transitions:
+
   opacity: 0;
+
+//This is to hide the scroll-bar
   scrollbar-width: none;
   -ms-overflow-style:none;
 }
@@ -19,78 +28,94 @@
   display: none;
 }
 
+
+//This is to flip the canvas again to have horizontal flex-direction
+
 .about__wrapper{
-  // overflow-x: scroll;
-  // overflow-y: hidden;
-//  height: 100%;
-  width: 5000px;
+  height: 100vh;
+  width: 100vw;
   display:flex;
   flex-direction: row;
   transform: rotate(90deg) translateY(-100vh);
   transform-origin: top left;
+
 //  float: left;
 //  vertical-align: top;
 }
+
+//Big grey BG text full-width
 .about__titles{
+  height: 100vh;
+  width: 100vw;
   @extend %title-full;
-  //@extend %cover;
   white-space:nowrap;
   position: absolute;
   color: $color-emboss;
   z-index: -10;
-  line-height: .6;
+  line-height: .55;
   opacity: .8;
   top: 0;
+  left: 0;
+
 }
 
+//Secondary tiles
 .about__title__wrapper{
-  position: absolute;
-  bottom: 2rem;
-  text-align: left;
-  left: 4rem;
-  display: flex;
-
-  white-space: nowrap;
-//  transform: rotate(-90deg);
+  height: 100vh;
+//  bottom: 10%;
+  display: inline;
+  align-self: center;
+  margin-left: 4rem;
+  margin-right: 100rem;
 
 }
+
 .about__title__label{
   @extend %description-12-bold;
-  @extend %center;
-  position: absolute;
-
+  margin-top: 12rem;
+  margin-left: 6rem;
 }
 
-
 .about__title__question{
-  display: flex;
-  flex-direction: row;
+  position: absolute;
+  // display: flex;
+  // flex-direction: row;
+  white-space: nowrap;
   margin-left: 5rem;
-  @extend %title-200;
+  @extend %title-160;
   transform: translateX(-50%) rotate(-90deg);
 }
 
+// About button to lead to next page
+.about__button__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
+  position: relative;
+}
 .about__button{
   @extend %description-16-bold;
-  width: 30rem;
-//  display: flex;
-  //align-items: center;
-  justify-content: flex-end;
-//  bottom: 5rem;
-//  margin-left: 0rem;
-  bottom: -115rem;
-  left: -96rem;
-  top: 50%;
-  position: relative;
-  letter-spacing: 0.05rem;
-  padding: 1rem;
-  //transform: translateX(-50%);
+  width: 15rem;
+
+  margin-bottom: 7rem;
+// //   //align-items: center;
+// //   justify-content: flex-end;
+//   bottom: 5rem;
+// // //  margin-left: 0rem;
+//   bottom: -115rem;
+//   left: -96rem;
+//   top: 50%;
+//   position: relative;
+//   letter-spacing: 0.05rem;
+//   padding: 1rem;
+//  transform: rotate(-90deg);
+
   .about__button__icon{
     position: absolute;
-    //@extend %cover;
-    transform: translateY(-40%) translateX(-75%);
     width: 15rem;
-    height: 8rem;
+    display: block;
+    justify-content: center;
+    bottom: 4rem;
   }
-
 }
