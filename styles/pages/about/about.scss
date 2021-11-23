@@ -1,8 +1,8 @@
 .about{
-//   @extend %cover;
+//  @extend %cover;
 // //  @extend %center;
-//   overflow: hidden;
-
+//  overflow: hidden;
+  @extend %page;
   background: $color-paper;
 
 
@@ -43,10 +43,16 @@
 //  vertical-align: top;
 }
 
-//Big grey BG text full-width
-.about__titles{
+.about__inner__wrapper {
+  position: relative;
   height: 100vh;
   width: 100vw;
+  display:flex;
+  flex-direction: row;
+}
+
+//Big grey BG text full-width
+.about__titles{
   @extend %title-full;
   white-space:nowrap;
   position: absolute;
@@ -78,12 +84,13 @@
 
 .about__title__question{
   position: absolute;
+  @extend %title-160;
+  transform: translateX(-50%) rotate(-90deg);
   // display: flex;
   // flex-direction: row;
   white-space: nowrap;
   margin-left: 5rem;
-  @extend %title-160;
-  transform: translateX(-50%) rotate(-90deg);
+
 }
 
 // About button to lead to next page

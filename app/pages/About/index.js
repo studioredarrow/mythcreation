@@ -7,6 +7,7 @@ export default class About extends Page{
 
       element: '.about',
       elements: {
+        wrapper: '.about__inner__wrapper',
         navigation: document.querySelector('.navigation'),
         title: '.about__titles'
       }

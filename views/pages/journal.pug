@@ -6,10 +6,6 @@ block variables
 block content
   .journal
     .journal__wrapper
-      .journal__titles
-        figure.journal__media
-          //img.journal__media__image(alt=media.image.alt src=media.image.url)
-
       .journal__information
         h1.journal__title= 'Journal'
 
@@ -23,5 +19,6 @@ block content
               a.journal__posts__link(href=`${"/post/"}${post.uid}`)=post.data.title
 
               .journal__posts__media
+
             //  figure.journal__posts__media
                 img.journal__posts__media__image(alt=post.data.image.alt src=post.data.image.url)

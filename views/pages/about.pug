@@ -6,54 +6,56 @@ block variables
 block content
   .about
     .about__wrapper
-      .about__titles
-        h1.about__titles=about.data.title
+      .about__inner__wrapper
+        .about__titles
+          h1.about__titles=about.data.title
 
-      each section in about.data.body
+        each section in about.data.body
 
-        if section.slice_type == 'title'
-          section.about__title__wrapper
-            p.about__title__label=section.primary.label
+          if section.slice_type == 'title'
+            section.about__title__wrapper
+              p.about__title__label(data-animation="label")=section.primary.label
 
-            h2.about__title__question=section.primary.question
+              h2.about__title__question(data-animation="title")=section.primary.question
 
-        if section.slice_type == 'what_is_myth_creation'
-          section.about__what__wrapper
-            p.about__what__label=section.primary.label
+          if section.slice_type == 'what_is_myth_creation'
+            section.about__what__wrapper
+              p.about__what__label(data-animation="label")=section.primary.label
 
-            p.about__what__text=section.primary.text
+              p.about__what__text(data-animation="paragraph")=section.primary.text
 
-            figure.about__what__media
-              img.about__what__media__image(alt=section.primary.image.alt data-src=section.primary.image.url)
+              figure.about__what__media
+                img.about__what__media__image(alt=section.primary.image.alt data-src=section.primary.image.url)
 
 
-        if section.slice_type == 'content'
-          section.about__content
-            .about__content__wrapper
-              p.about__content__label=section.primary.label
-              .about__content__line
-              .about__content__description_how!=PrismicDOM.RichText.asHtml(section.primary.description_how)
+          if section.slice_type == 'content'
+            section.about__content
+              .about__content__wrapper
+                p.about__content__label(data-animation="highlight")=section.primary.label
+                .about__content__line
+                .about__content__description_how!=PrismicDOM.RichText.asHtml(section.primary.description_how).replace(/<p>/g, '<p data-animation="paragraph">')
 
-              figure.about__content__media
-                img.about__content__media__image(alt=section.primary.image.alt data-src=section.primary.image.url)
+                figure.about__content__media
+                  img.about__content__media__image(alt=section.primary.image.alt data-src=section.primary.image.url)
 
-        if section.slice_type == 'highlight'
-          section.about__highlight
-            .about__highlight__wrapper
-              if section.primary.label
-                //currently does not have a label. perhaps add?
-                p.about__highlight__label=section.primary.label
+          if section.slice_type == 'highlight'
+            section.about__highlight
+              .about__highlight__wrapper
+                if section.primary.label
+                  //currently does not have a label. perhaps add?
+                  p.about__highlight__label=section.primary.label
 
-              h3.about__highlight__highlight=section.primary.highlight
+                h3.about__highlight__highlight(data-animation="label")=section.primary.highlight
 
-        if section.slice_type == 'gallery'
-          section.about__gallery
-            .about__gallery__wrapper
-              each media in section.items
-                figure.about__gallery__media
-                  img.about__gallery__media__image(alt=media.image.alt data-src=media.image.url)
+          if section.slice_type == 'gallery'
+            section.about__gallery
+              .about__gallery__wrapper
+                each media in section.items
+                  figure.about__gallery__media
+                    img.about__gallery__media__image(alt=media.image.alt data-src=media.image.url)
 
-      .about__button
-        a(href=Link(about.data.myths))= about.data.button
-          svg.about__button__icon(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 178.3 87.3")
-            path(fill="none" stroke="currentColor" stroke-width="1.5" d="M137.3,10.69c-17-2.34-54-5.17-71-4.18s-34.2,5.43-49.68,16.08c-5.06,3.49-10.1,7.85-13.28,14.66s-4,16.61-.66,23.23C6.32,67.76,21.23,74.73,27.3,75.69c53.89,8.44,88.85,0,134.12-22.57,3.53-1.76,7.13-3.76,9.86-7.52a19.36,19.36,0,0,0,3.19-14.91c-1.42-6.12-6-9-10.19-11C122.75.08,76.23,4.79,36.89,32.58c-4.52,3.19-9.08,6.84-12.2,12.63s-4.48,14.26-2,20.74c2.28,6.06,7.1,8.82,11.59,10.83,42.84,19.18,91,10.51,129.51-23.31,4.15-3.65,8.3-7.72,11.1-13.55s4-13.84,1.86-20.26C174.16,12,168,8.91,162.32,7c-27.94-9.7-81.89-7.67-110,.73")
+        .about__button__wrapper
+          .about__button
+            a(href=Link(about.data.myths))= about.data.button
+              svg.about__button__icon(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 178.3 87.3")
+                path(fill="none" stroke="currentColor" stroke-width="1.5" d="M137.3,10.69c-17-2.34-54-5.17-71-4.18s-34.2,5.43-49.68,16.08c-5.06,3.49-10.1,7.85-13.28,14.66s-4,16.61-.66,23.23C6.32,67.76,21.23,74.73,27.3,75.69c53.89,8.44,88.85,0,134.12-22.57,3.53-1.76,7.13-3.76,9.86-7.52a19.36,19.36,0,0,0,3.19-14.91c-1.42-6.12-6-9-10.19-11C122.75.08,76.23,4.79,36.89,32.58c-4.52,3.19-9.08,6.84-12.2,12.63s-4.48,14.26-2,20.74c2.28,6.06,7.1,8.82,11.59,10.83,42.84,19.18,91,10.51,129.51-23.31,4.15-3.65,8.3-7.72,11.1-13.55s4-13.84,1.86-20.26C174.16,12,168,8.91,162.32,7c-27.94-9.7-81.89-7.67-110,.73")

@@ -5,7 +5,12 @@ export default class Journal extends Page{
     super({
       id: 'journal',
 
-      element: '.journal'
+      element: '.journal',
+      elements: {
+        wrapper: '.journal__wrapper',
+        navigation: document.querySelector('.navigation'),
+        title: '.journal__title'
+      }
     })
 
   }
