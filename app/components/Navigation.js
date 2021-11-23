@@ -17,6 +17,10 @@ export default class Navigation extends Component {
     this.onChange(template)
   }
 
+  onChange (template) {
+    console.log(template)
+  }
+
   // onChange (template) {
   //   if (template === 'about') {
   //     GSAP.to(this.element, {

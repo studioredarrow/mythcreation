@@ -1,7 +1,7 @@
 .detail{
   //@extend %center;
   @extend %page;
-  background: $color-paper;
+//  background: $color-paper;
   // top: 0;
   // height: 100%;
   // width: 100%;
@@ -154,6 +154,5 @@
   width: 10rem;
   height: 10rem;
   transform: translateY(-40%) translateX(-80%);
-  // @extend %cover;
-  // z-index: 9;
+
 }

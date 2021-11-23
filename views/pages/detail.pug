@@ -3,7 +3,7 @@ extends ../base.pug
 block variables
   - var template = 'detail'
 block content
-  .detail
+  .detail(data-background="#f6eee3" data-color="ff0000")
     .detail__wrapper
       figure.detail__media
         img.detail__media__image(alt=detail.data.image.alt data-src=detail.data.image.url)

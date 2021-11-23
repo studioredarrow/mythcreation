@@ -17,6 +17,10 @@
   top: 3rem;
   width: 4rem;
   left: 50%;
+  transition: opacity 0.4s ease;
+  &:hover {
+    opacity: 0.5;
+  }
 
   @include media('<phone') {
     height: 5rem;
@@ -34,6 +38,7 @@
 
 }
 
+
 .navigation__list__item{
   position: fixed;
   right: 4rem;
@@ -49,5 +54,7 @@
   pointer-events: auto;
   cursor: pointer;
   display: block;
-
+  &:hover {
+    padding: .8rem 1.6rem;
+  }
 }

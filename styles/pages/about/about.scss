@@ -3,7 +3,7 @@
 // //  @extend %center;
 //  overflow: hidden;
   @extend %page;
-  background: $color-paper;
+//  background: $color-paper;
 
 
   width: 100vh;
@@ -102,10 +102,13 @@
   position: relative;
 }
 .about__button{
+//  @extend %link--hidden;
   @extend %description-16-bold;
   width: 15rem;
-
+//  line-height: 1;
   margin-bottom: 7rem;
+  pointer-events: auto;
+  transition: opacity 0.4s ease;
 // //   //align-items: center;
 // //   justify-content: flex-end;
 //   bottom: 5rem;
@@ -124,5 +127,6 @@
     display: block;
     justify-content: center;
     bottom: 4rem;
+
   }
 }

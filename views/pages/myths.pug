@@ -4,7 +4,7 @@ block variables
   - var template = 'myths'
 
 block content
-  .myths
+  .myths(data-background="#f6eee3" data-color="ff0000")
     .myths__wrapper
       .myths__gallery__wrapper
         .myths__titles
@@ -12,7 +12,7 @@ block content
             each detail in myth.data.details
               a.myths__gallery__link(href=Link(detail.details_myth))
                 .myths__titles__label=`${Numbers(index)}`
-                .myths__titles__title=myth.data.title
+                .myths__titles__title(data-animation="title")=myth.data.title
 
                 figure.myths__gallery__media
                   img.myths__gallery__media__image(alt=detail.details_myth.data.image.alt data-src=detail.details_myth.data.image.url)

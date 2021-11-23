@@ -28,7 +28,7 @@ body {
   font-style: normal;
   font-weight: normal;
   color: $color-red;
-
+  background: $color-paper;
 
   left: 0;
   top: 0;
@@ -52,9 +52,15 @@ button {
 
 }
 //
-// img {
-//   vertical-align: middle;
-// }
+img {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+
+//  vertical-align: middle;
+  &.loaded {
+    opacity: 1;
+  }
+}
 
 .content{
   left: 0;

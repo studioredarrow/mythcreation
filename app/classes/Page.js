@@ -13,7 +13,7 @@ import Paragraph from 'animations/Paragraph'
 // import News from 'animations/News'
 import Label from 'animations/Label'
 
-//import AsyncLoad from 'classes/AsyncLoad'
+import AsyncLoad from 'classes/AsyncLoad'
 
 //import { ColorsManager } from 'classes/Colors'
 
@@ -32,7 +32,9 @@ export default class Page {
       animationsHighlights: '[data-animation="highlight"]',
       animationsTitles: '[data-animation="title"]',
       animationsLabels: '[data-animation="label"]',
-      animationsParagraphs: '[data-animation="paragraph"]'
+      animationsParagraphs: '[data-animation="paragraph"]',
+
+      preloaders: '[data-src]'
     }
 
 //    this.create()
@@ -69,6 +71,7 @@ export default class Page {
     })
 
     this.createAnimations()
+    this.createPreloader()
   }
 
   createAnimations() {
@@ -93,7 +96,7 @@ export default class Page {
     this.animations.push(...this.animationsTitles)
 
     //Paragraphs
-    this.animationsPraragraphs = map(this.elements.animationsParagraphs, element => {
+    this.animationsParagraphs = map(this.elements.animationsParagraphs, element => {
       return new Paragraph({
         element
       })
@@ -111,6 +114,14 @@ export default class Page {
     this.animations.push(...this.animationsLabels)
   }
 
+
+  createPreloader() {
+    this.preloaders = map(this.elements.preloaders, element => {
+      return new AsyncLoad({ element })
+    })
+  }
+
+  //ANIMATIONS
   show () {
 
     return new Promise(resolve => {
@@ -137,7 +148,7 @@ export default class Page {
 
   hide () {
     return new Promise(resolve => {
-      this.removeEventListeners()
+      this.destroy()
 
       this.animationOut = GSAP.timeline()
 
@@ -147,6 +158,8 @@ export default class Page {
       })
     })
   }
+
+  //EVENTS
 
   onMouseWheel (event) {
     const { pixelY} = NormalizeWheel(event)
@@ -163,6 +176,8 @@ export default class Page {
     each(this.animations, animation => animation.onResize())
   }
 
+
+  //LOOPS
   update () {
   //  console.log(this.scroll.target)
 
@@ -180,7 +195,7 @@ export default class Page {
     }
   }
 
-
+  //LISTENERS
 
   addEventListeners () {
     window.addEventListener('mousewheel', this.onMouseWheelEvent)
@@ -189,5 +204,11 @@ export default class Page {
 
   removeEventListeners () {
     window.removeEventListener('mousewheel', this.onMouseWheelEvent)
+  }
+
+  //destroy
+
+  destroy () {
+    this.removeEventListeners()
   }
 }

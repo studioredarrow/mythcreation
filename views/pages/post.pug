@@ -3,7 +3,7 @@ extends ../base.pug
 block variables
   - var template = 'post'
 block content
-  .post
+  .post(data-background="#f6eee3" data-color="ff0000")
     .post__wrapper
       section.post__titles
         .post__titles__wrapper
@@ -31,10 +31,10 @@ block content
         if section.slice_type == 'text'
           section.post__text
             .post__text__wrapper
-              span.post__text__text(data-animation="paragraph")!=PrismicDOM.RichText.asHtml(section.primary.text).replace(/\n/g, '<br>')
+              span.post__text__text!=PrismicDOM.RichText.asHtml(section.primary.text).replace(/<p>/g, '<p data-animation="highlight">')
 
         if section.slice_type == 'link'
           section.post__link
             .post__link__wrapper
 
-              a.post__information__link(href=section.primary.link.url target="_blank")=section.primary.link_text
+              a.post__information__link(href=section.primary.link.url target="_blank" data-animation="highlight")=section.primary.link_text

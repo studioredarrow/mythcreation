@@ -49,10 +49,6 @@ const handleLinkResolver = doc => {
     return '/journal'
   }
 
-  if (doc.type === 'test') {
-    return '/test'
-  }
-
   console.log(doc)
   return '/'
 }
@@ -150,25 +146,6 @@ app.get('/journal', async (req, res) => {
     ...defaults,
     home,
     journal
-  })
-})
-
-app.get('/test', async (req, res) => {
-  const api = await initApi(req)
-  const defaults = await handleRequest(api)
-  const home = await api.getSingle('home')
-
-  const {results: test } = await api.query(Prismic.Predicates.at('document.type', 'post'), {
-    fetchLinks: 'post.getByUID',
-    // Order by last publication date from most recent to oldest
-    orderings : '[document.last_publication_date desc]',
-    pageSize : 50
-  })
-
-  res.render('pages/test', {
-    ...defaults,
-    home,
-    test
   })
 })
 
