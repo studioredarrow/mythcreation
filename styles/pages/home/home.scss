@@ -2,7 +2,7 @@
   @extend %page;
   @extend %center;
 
-  overflow: hidden;
+//  overflow: hidden;
   text-align: center;
 }
 .home__wrapper{
@@ -23,8 +23,8 @@
 }
 .home__gallery{
   @extend %cover;
-  width: 246.2rem + 4rem;
-  height: 163.4rem + 5rem;
+  width: 246.2rem + 3rem;
+  height: 163.4rem + 4rem;
   visibility: hidden;
   //object-fit: cover;
 //  overflow: hidden;
@@ -49,13 +49,13 @@
   &:nth-child(3) {
     width: 32.3rem;
     height: 48.4rem;
-    top: 0rem;
+    top: 0.0rem;
     left: 109.3rem;
   }
 
   &:nth-child(4) {
     width: 30.6rem;
-    height: 22rem;
+    height: 22.0rem;
     top: 14.7rem;
     left: 144.3rem;
   }
@@ -63,7 +63,7 @@
   &:nth-child(5) {
     width: 66.2rem;
     height: 47.8rem;
-    top: 0rem;
+    top: 0.0rem;
     left: 180.1rem;
   }
 
@@ -71,7 +71,7 @@
     width: 65rem;
     height: 46.8rem;
     top: 64.6rem;
-    left: 0rem;
+    left: 0.0rem;
   }
 
   &:nth-child(7) {
@@ -89,8 +89,8 @@
   }
 
   &:nth-child(9) {
-    width: 43.6rem;
-    height: 57.8rem;
+    width: 42.8rem;
+    height: 57.0rem;
     top: 53.6rem;
     left: 200.6rem;
   }
@@ -118,7 +118,7 @@
 
   &:nth-child(13) {
     width: 22.9rem;
-    height: 46rem;
+    height: 46.0rem;
     top: 101.4rem;
     left: 145.5rem;
   }
@@ -126,8 +126,8 @@
   &:nth-child(14) {
     width: 71.3rem;
     height: 45.4rem;
-    top: 122.9rem;
-    left: 174.9rem;
+    top: 110.9rem;
+    left: 165.9rem;
   }
 }
 .home__gallery__media__image{
@@ -161,5 +161,9 @@
     width: 27rem;
     position: absolute;
     margin-left: -6rem;
+    @include media('<phone') {
+      bottom: -3.5rem;
+      width: 40rem;
+    }
   }
 }

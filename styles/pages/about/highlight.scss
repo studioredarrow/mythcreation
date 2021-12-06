@@ -1,12 +1,16 @@
 .about__highlight{
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  margin-bottom: 20%;
+  justify-content: flex-end;
   text-align: center;
-
+  @include media('<phone') {
+    margin-bottom: 70%;
+  }
 }
 .about__highlight__wrapper{
-  width: 122rem;
+  width: 40rem;
+
 }
 
 .about__highlight__label{
@@ -14,7 +18,7 @@
 }
 
 .about__highlight__highlight{
-  @extend %title-200;
+  @extend %description-35-bold-slanted;
 
 
 }

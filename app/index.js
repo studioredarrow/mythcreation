@@ -2,6 +2,7 @@ import each from 'lodash/each'
 
 import NormalizeWheel from 'normalize-wheel'
 
+import Detection from 'classes/Detection'
 import Canvas from 'components/Canvas'
 
 import Navigation from 'components/Navigation'
@@ -18,17 +19,20 @@ import Journal from 'pages/Journal'
 
 class App {
   constructor () {
+
     this.createContent()
+
+    this.createCanvas()
 
     this.createPreloader()
     this.createNavigation()
-
-    this.createCanvas()
 
     this.createPages()
 
     this.addEventListeners()
     this.addLinkListeners()
+
+    this.onResize()
 
     this.update()
   }
@@ -41,12 +45,17 @@ class App {
   }
 
   createPreloader () {
-    this.preloader = new Preloader()
+    this.preloader = new Preloader({
+      canvas: this.canvas
+    })
+
     this.preloader.once('completed', this.onPreloaded.bind(this))
   }
 
   createCanvas () {
-    this.canvas = new Canvas()
+    this.canvas = new Canvas({
+      template: this.template
+    })
   }
 
   createContent() {
@@ -70,15 +79,25 @@ class App {
   //***EVENTS***
 
   onPreloaded () {
-    this.preloader.destroy()
-
     this.onResize()
+
+    this.canvas.onPreloaded()
 
     this.page.show()
   }
 
-  async onChange (url) {
+  onPopState () {
+    this.onChange({
+      url: window.location.pathname,
+      push:false
+    })
+  }
 
+  async onChange ({ url, push = true }) {
+    // url = url.replace(window.location.origin, '')
+    // const page = this.pages[url]
+
+    this.canvas.onChangeStart(this.template)
     await this.page.hide()
 
     const request = await window.fetch(url)
@@ -86,6 +105,10 @@ class App {
     if (request.status === 200) {
       const html = await request.text()
       const div = document.createElement('div')
+
+      if (push) {
+        window.history.pushState({}, '', url)
+      }
 
       div.innerHTML = html
 
@@ -97,6 +120,8 @@ class App {
 
       this.content.setAttribute('data-template', this.template)
       this.content.innerHTML = divContent.innerHTML
+
+      this.canvas.onChangeEnd(this.template)
 
       this.page = this.pages[this.template]
       this.page.create()
@@ -162,12 +187,12 @@ class App {
 
   update () {
 
-    if(this.canvas && this.canvas.update) {
-      this.canvas.update()
-    }
-
     if ( this.page && this.page.update ) {
       this.page.update()
+    }
+
+    if(this.canvas && this.canvas.update) {
+      this.canvas.update(this.page.scroll)
     }
 
     this.frame = window.requestAnimationFrame(this.update.bind(this))
@@ -177,6 +202,7 @@ class App {
   //***LISTENERS***
 
   addEventListeners () {
+    window.addEventListener('popstate', this.onPopState.bind(this))
     window.addEventListener('mousewheel', this.onWheel.bind(this))
 
     window.addEventListener('mousedown', this.onTouchDown.bind(this))
@@ -200,9 +226,8 @@ class App {
         event.preventDefault()
 
         const { href } = link
-        this.onChange(href)
 
-        console.log(event,href)
+        this.onChange({ url: href })
       }
     })
   }

@@ -39,6 +39,7 @@
   transform: rotate(90deg) translateY(-100vh);
   transform-origin: top left;
 
+
 //  float: left;
 //  vertical-align: top;
 }
@@ -63,12 +64,25 @@
   top: 0;
   left: 0;
 
+  @include media('<phone') {
+  line-height: .80;
+  }
+}
+
+.about__line__drawing {
+  position: absolute;
+  width: 1000rem;
+  display: flex;
+  overflow: hidden;
+  transform: translateY(-160rem);
+  z-index: 10;
 }
 
 //Secondary tiles
 .about__title__wrapper{
   height: 100vh;
 //  bottom: 10%;
+  position: relative;
   display: inline;
   align-self: center;
   margin-left: 4rem;
@@ -80,16 +94,28 @@
   @extend %description-12-bold;
   margin-top: 12rem;
   margin-left: 6rem;
+
+}
+
+.about__question__wrapper {
+  position: absolute;
+  margin-left: 7rem;
+  white-space: nowrap;
+  padding: 0;
+  pointer-events: none;
+//  bottom: 60rem;
+  transform: translateX(-50%) rotate(-90deg);
+  will-change: transform;
 }
 
 .about__title__question{
-  position: absolute;
   @extend %title-160;
-  transform: translateX(-50%) rotate(-90deg);
-  // display: flex;
+  display: inline-block;
   // flex-direction: row;
-  white-space: nowrap;
-  margin-left: 5rem;
+  //text-align: right;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin-left: 300px;
 
 }
 
@@ -109,24 +135,21 @@
   margin-bottom: 7rem;
   pointer-events: auto;
   transition: opacity 0.4s ease;
-// //   //align-items: center;
-// //   justify-content: flex-end;
-//   bottom: 5rem;
-// // //  margin-left: 0rem;
-//   bottom: -115rem;
-//   left: -96rem;
-//   top: 50%;
-//   position: relative;
-//   letter-spacing: 0.05rem;
-//   padding: 1rem;
-//  transform: rotate(-90deg);
 
+  @include media('<phone') {
+    position: absolute;
+    right: 29rem;
+  }
   .about__button__icon{
     position: absolute;
     width: 15rem;
     display: block;
     justify-content: center;
     bottom: 4rem;
-
+    @include media('<phone') {
+      transform: translateY(6rem);
+      bottom: 5rem;
+      width: 18rem;
+    }
   }
 }

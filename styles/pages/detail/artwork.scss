@@ -19,10 +19,19 @@
   left: 30%;
   justify-content: center;
 
-
+  @include media('<phone') {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+  }
   .detail__information__artwork--Right & {
     flex-direction:row-reverse;
   }
+
+
 }
 
 .detail__information__artwork__box {
@@ -30,20 +39,33 @@
   width: 50rem;
 //  justify-content: center;
   //align-content: center;
+  @include media('<phone') {
+    display: flex;
+    justify-content: center;
+
+  }
 }
 .detail__information__artwork__title{
   @extend %title-35;
   width: 25rem;
   margin-left: 7rem;
+  @include media('<phone') {
+    margin-right: 5rem;
+    margin-left: 0;
+  }
 }
 
 .detail__information__artwork__description{
   @extend %description-10;
-  width: 40%;
+
   padding-bottom: 4rem;
 
   p:not(:first-child) {
     margin-top: 2.5rem;
+  }
+  @include media('<phone') {
+    width: 90%;
+
   }
 }
 

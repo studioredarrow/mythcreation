@@ -2,24 +2,38 @@
   font-family: $font-voyage;
   font-size: 3.5rem;
   font-weight: normal;
+  @include media('<phone') {
+    font-family: $font-voyage;
+    font-size: 7rem;
+    font-weight: normal;
+  }
 }
 
 %title-60 {
   font-family: $font-voyage;
   font-size: 6rem;
   font-weight: normal;
+
 }
 
 %title-100 {
   font-family: $font-voyage;
   font-size: 10rem;
   font-weight: normal;
+//  font-variant-ligatures: common-ligatures;
+
 }
 
 %title-160 {
   font-family: $font-voyage;
   font-size: 16rem;
   font-weight: normal;
+  @include media('<phone') {
+    font-family: $font-voyage;
+    font-size: 14rem;
+    font-weight: normal;
+    white-space: nowrap;
+  }
 }
 
 %title-200 {
@@ -27,6 +41,7 @@
   font-size: 20rem;
   font-weight: normal;
   line-height: 0.8;
+
 }
 
 %title-450 {
@@ -40,6 +55,11 @@
   font-family: $font-voyage;
   font-size: 60rem;
   font-weight: normal;
+  @include media('<phone') {
+    font-family: $font-voyage;
+    font-size: 27rem;
+    font-weight: normal;
+  }
 }
 
 %title-full {
@@ -51,6 +71,18 @@
 %title-heavy {
   font-family: $font-object-sans;
   font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 800;
+  text-transform: uppercase;
+
+  @include media('<phone') {
+    font-size: 2.8rem;
+  }
+}
+
+%title-heavy-bold {
+  font-family: $font-object-sans;
+  font-size: 5.6rem;
   font-style: normal;
   font-weight: 800;
   text-transform: uppercase;

@@ -18,10 +18,15 @@
   display: flex;
   flex-direction: column;
   margin-left: 20%;
+  @include media('<phone') {
+    margin-top: 10rem;
+    margin-left: 5rem;
+  }
 }
 
 .post__titles__wrapper{
   //position: relative;
+
 }
 
 .post__titles__title{
@@ -34,14 +39,14 @@
 
 .post__titles__title2{
 
-  @extend %title-450;
+  @extend %title-200;
   @extend %cover;
-  //color: $color-emboss;
+  color: $color-emboss;
   padding-top: 8%;
   width: 100%;
   margin-bottom: 10rem;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   position: relative;
   white-space: nowrap;
   word-wrap: normal;
@@ -59,31 +64,45 @@
 .post__titles__media__image{
   width: 35%;
   padding-top: 4rem;
+  @include media('<phone') {
+    width: 80%;
+
+  }
 }
 .post__titles__date{
 
 }
 
 //slicetype-title
-.post__title{
 
-  @extend %title-200;
-  margin-top: 10%;
-  margin-bottom: 4rem;
-  margin-left: 0;
-  line-height: 1;
-  //color: $color-emboss;
+.post__title__wrapper {
+  display: flex;
   white-space: nowrap;
   word-wrap: normal;
-  align-items: center;
-  justify-content: margin-left;
-  display:block;
-
+  will-change: transform;
+  margin-top: 10%;
+  margin-bottom: 4rem;
+//  left: 0;
+  justify-content: center;
+  line-height: 1;
   &:first-child {
 
     margin-top:15rem;
 
   }
+}
+.post__title{
+
+  @extend %title-160;
+
+  //color: $color-emboss;
+
+  align-items: center;
+  //justify-content: margin-left;
+  display:inline-block;
+//  padding-right: 300px;
+
+
 }
 
 
@@ -125,6 +144,12 @@
   margin-top: 8rem;
   margin-left: 25%;
   width: 40%;
+  @include media('<phone') {
+
+    margin-left: 5rem;
+    margin-right: 5rem;
+    width: 80%;
+  }
 }
 .post__text__text{
   line-height: 1.5;

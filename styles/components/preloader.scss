@@ -20,9 +20,9 @@
   @extend %cover;
   font-size: 0;
   transform: translateY(50%);
-  width: 40.17094%;
+  width: 30%;
   float: left;
-  margin-left: 20.17094%;
+  margin-left: 15%;
 
   span {
     display: inline-block;
@@ -30,7 +30,10 @@
   }
 
   span span {
-    @extend %description-12-bold;
+    @extend %description-12-bold-slanted;
+  }
+  @include media('<phone') {
+    margin-left: 5rem;
   }
 }
 .preloader__number{
@@ -40,7 +43,7 @@
   right: 2rem;
   bottom: 2rem;
   text-align: right;
-  //transform: translateX(-50%);
+
 }
 
 .preloader__number__text{

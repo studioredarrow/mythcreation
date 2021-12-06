@@ -2,6 +2,8 @@
 .about__gallery{
   @extend %center;
   height: 100vh;
+  position: relative;
+
 }
 .about__gallery__wrapper{
   display: grid;
@@ -10,6 +12,11 @@
   justify-content: center;
   object-fit: contain;
 //  margin-right: 15rem;
+  @include media('<phone') {
+    display: grid;
+    grid-template-columns: 25rem 25rem 25rem;
+    grid-template-rows: 32rem 32rem 32rem 32rem;
+  }
 }
 
 .about__gallery__media{
@@ -18,5 +25,20 @@
   left: 50%;
 }
 .about__gallery__media__image{
+  max-height: 12rem;
+  max-width: 12rem;
+  object-fit: cover;
+  @include media('<phone') {
+    max-height: 15rem;
+    max-width: 15rem;
+    object-fit: cover;
+  }
+}
 
+.about__gallery__icon {
+  position: absolute;
+  width: 19rem;
+  display: flex;
+  top: 60%;
+  right: 0;
 }

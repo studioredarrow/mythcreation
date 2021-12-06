@@ -9,13 +9,18 @@ import map from 'lodash/map'
 
 import Highlight from 'animations/Highlight'
 import Title from 'animations/Title'
+import Title2 from 'animations/Title2'
 import Paragraph from 'animations/Paragraph'
 // import News from 'animations/News'
 import Label from 'animations/Label'
+import Link from 'animations/Link'
+import Gallery from 'animations/Gallery'
+import Post from 'animations/Post'
+import Marquee from 'animations/Marquee'
 
 import AsyncLoad from 'classes/AsyncLoad'
 
-//import { ColorsManager } from 'classes/Colors'
+import { ColorsManager } from 'classes/Colors'
 
 export default class Page {
   constructor ({
@@ -31,18 +36,24 @@ export default class Page {
 
       animationsHighlights: '[data-animation="highlight"]',
       animationsTitles: '[data-animation="title"]',
+      animationsTitles2: '[data-animation="title2"]',
       animationsLabels: '[data-animation="label"]',
+      animationsLinks: '[data-animation="link"]',
       animationsParagraphs: '[data-animation="paragraph"]',
+      animationsGallery: '[data-animation="gallery"]',
+    //  animationsPost: '[data-animation="post"]',
+      animationsMarquee: '[data-animation="marquee"]',
 
       preloaders: '[data-src]'
     }
 
-//    this.create()
     this.id = id
 
     this.transformPrefix = Prefix('transform')
 
 //    this.onMouseWheelEvent = this.onMouseWheel.bind(this)
+
+//    this.create()
   }
 
   create () {
@@ -95,6 +106,24 @@ export default class Page {
 
     this.animations.push(...this.animationsTitles)
 
+    //Titles2
+    this.animationsTitles2 = map(this.elements.animationsTitles2, element => {
+      return new Title2({
+        element
+      })
+    })
+
+    this.animations.push(...this.animationsTitles2)
+
+    //Gallery
+    this.animationsGallery = map(this.elements.animationsGallery, element => {
+      return new Gallery({
+        element
+      })
+    })
+
+    this.animations.push(...this.animationsGallery)
+
     //Paragraphs
     this.animationsParagraphs = map(this.elements.animationsParagraphs, element => {
       return new Paragraph({
@@ -103,6 +132,36 @@ export default class Page {
     })
 
     this.animations.push(...this.animationsParagraphs)
+
+    //Paragraphs
+    this.animationsMarquee = map(this.elements.animationsMarquee, element => {
+      return new Marquee({
+        element
+      })
+    })
+
+    this.animations.push(...this.animationsMarquee)
+
+    // //Post
+    // this.animationsPost = map(this.elements.animationsPost, element => {
+    //   return new Post({
+    //     element
+    //   })
+    // })
+    //
+    // this.animations.push(...this.animationsPost)
+
+
+
+    //LINKS***
+
+    this.animationsLinks = map(this.elements.animationsLinks, element => {
+      return new Link({
+        element
+      })
+    })
+
+    this.animations.push(...this.animationsLinks)
 
     //Labels
     this.animationsLabels = map(this.elements.animationsLabels, element => {
@@ -125,10 +184,11 @@ export default class Page {
   show () {
 
     return new Promise(resolve => {
-      // ColorsManager.change({
-      //   backgroundColor: this.element.getAttribute('data-background'),
-      //   color: this.element.getAttribute('data-color')
-      // })
+      ColorsManager.change({
+        backgroundColor: this.element.getAttribute('data-background'),
+        color: this.element.getAttribute('data-color')
+      })
+
 
       this.animationIn = GSAP.timeline()
 
@@ -137,6 +197,7 @@ export default class Page {
       }, {
         autoAlpha: 1
       })
+
 
       this.animationIn.call(_ => {
         this.addEventListeners()

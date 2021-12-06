@@ -9,10 +9,30 @@
 */
 
 /*!
+ * CustomEase 3.5.1
+ * https://greensock.com
+ *
+ * @license Copyright 2008-2020, GreenSock. All rights reserved.
+ * Subject to the terms at https://greensock.com/standard-license or for
+ * Club GreenSock members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/*!
  * GSAP 3.8.0
  * https://greensock.com
  *
  * @license Copyright 2008-2021, GreenSock. All rights reserved.
+ * Subject to the terms at https://greensock.com/standard-license or for
+ * Club GreenSock members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/*!
+ * paths 3.8.0
+ * https://greensock.com
+ *
+ * Copyright 2008-2021, GreenSock. All rights reserved.
  * Subject to the terms at https://greensock.com/standard-license or for
  * Club GreenSock members, the agreement issued with that membership.
  * @author: Jack Doyle, jack@greensock.com
@@ -36,7 +56,11 @@
 
 /*! ./CSSPlugin.js */
 
+/*! ./Detail */
+
 /*! ./ExecutionEnvironment */
+
+/*! ./Gallery */
 
 /*! ./Home */
 
@@ -362,13 +386,23 @@
 
 /*! ./utils/sendMessage.js */
 
+/*! animations/Gallery */
+
 /*! animations/Highlight */
 
 /*! animations/Label */
 
+/*! animations/Link */
+
+/*! animations/Marquee */
+
 /*! animations/Paragraph */
 
+/*! animations/Post */
+
 /*! animations/Title */
+
+/*! animations/Title2 */
 
 /*! ansi-html-community */
 
@@ -376,11 +410,19 @@
 
 /*! classes/Animation */
 
+/*! classes/Arrow */
+
 /*! classes/AsyncLoad */
 
 /*! classes/Button */
 
+/*! classes/Colors */
+
 /*! classes/Component */
+
+/*! classes/Detection */
+
+/*! classes/Line */
 
 /*! classes/Page */
 
@@ -393,6 +435,8 @@
 /*! events */
 
 /*! gsap */
+
+/*! gsap/utils/paths */
 
 /*! html-entities */
 
@@ -424,6 +468,10 @@
 
 /*! querystring */
 
+/*! shaders/home-fragment.glsl */
+
+/*! shaders/home-vertex.glsl */
+
 /*! shaders/plane-fragment.glsl */
 
 /*! shaders/plane-vertex.glsl */
@@ -434,7 +482,11 @@
 
 /*! url */
 
+/*! utils/CustomEase */
+
 /*! utils/colors */
+
+/*! utils/easings */
 
 /*! utils/text */
 
@@ -457,6 +509,10 @@
   \***************************/
 
 /*!*****************************!*\
+  !*** ./app/classes/Line.js ***!
+  \*****************************/
+
+/*!*****************************!*\
   !*** ./app/classes/Page.js ***!
   \*****************************/
 
@@ -464,9 +520,29 @@
   !*** ./app/utils/colors.js ***!
   \*****************************/
 
+/*!******************************!*\
+  !*** ./app/classes/Arrow.js ***!
+  \******************************/
+
+/*!******************************!*\
+  !*** ./app/utils/easings.js ***!
+  \******************************/
+
 /*!*******************************!*\
   !*** ./app/classes/Button.js ***!
   \*******************************/
+
+/*!*******************************!*\
+  !*** ./app/classes/Colors.js ***!
+  \*******************************/
+
+/*!********************************!*\
+  !*** ./app/animations/Link.js ***!
+  \********************************/
+
+/*!********************************!*\
+  !*** ./app/animations/Post.js ***!
+  \********************************/
 
 /*!*********************************!*\
   !*** ./app/animations/Label.js ***!
@@ -485,8 +561,16 @@
   \*********************************/
 
 /*!*********************************!*\
+  !*** ./app/utils/CustomEase.js ***!
+  \*********************************/
+
+/*!*********************************!*\
   !*** ./node_modules/url/url.js ***!
   \*********************************/
+
+/*!**********************************!*\
+  !*** ./app/animations/Title2.js ***!
+  \**********************************/
 
 /*!**********************************!*\
   !*** ./app/classes/Animation.js ***!
@@ -501,6 +585,10 @@
   \**********************************/
 
 /*!**********************************!*\
+  !*** ./app/classes/Detection.js ***!
+  \**********************************/
+
+/*!**********************************!*\
   !*** ./app/pages/About/index.js ***!
   \**********************************/
 
@@ -511,6 +599,14 @@
 /*!**********************************!*\
   !*** ./node_modules/url/util.js ***!
   \**********************************/
+
+/*!***********************************!*\
+  !*** ./app/animations/Gallery.js ***!
+  \***********************************/
+
+/*!***********************************!*\
+  !*** ./app/animations/Marquee.js ***!
+  \***********************************/
 
 /*!***********************************!*\
   !*** ./app/pages/Detail/index.js ***!
@@ -569,6 +665,10 @@
   \**************************************/
 
 /*!**************************************!*\
+  !*** ./app/shaders/home-vertex.glsl ***!
+  \**************************************/
+
+/*!**************************************!*\
   !*** ./node_modules/lodash/_Hash.js ***!
   \**************************************/
 
@@ -606,6 +706,10 @@
 
 /*!****************************************!*\
   !*** ./app/components/Canvas/index.js ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./app/shaders/home-fragment.glsl ***!
   \****************************************/
 
 /*!****************************************!*\
@@ -719,6 +823,10 @@
 /*!******************************************!*\
       !*** ./node_modules/strip-ansi/index.js ***!
       \******************************************/
+
+/*!******************************************!*\
+  !*** ./node_modules/gsap/utils/paths.js ***!
+  \******************************************/
 
 /*!******************************************!*\
   !*** ./node_modules/lodash/_DataView.js ***!
@@ -1077,6 +1185,14 @@
   \**********************************************/
 
 /*!***********************************************!*\
+  !*** ./app/components/Canvas/Detail/Media.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./app/components/Canvas/Detail/index.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
   !*** ./node_modules/lodash/_arrayLikeKeys.js ***!
   \***********************************************/
 
@@ -1135,6 +1251,10 @@
 /*!************************************************!*\
   !*** ./node_modules/webpack/hot/dev-server.js ***!
   \************************************************/
+
+/*!*************************************************!*\
+  !*** ./app/components/Canvas/Detail/Gallery.js ***!
+  \*************************************************/
 
 /*!*************************************************!*\
   !*** ./node_modules/html-entities/lib/index.js ***!

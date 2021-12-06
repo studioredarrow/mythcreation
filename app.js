@@ -9,17 +9,19 @@ const methodOverride = require('method-override')
 const app = express()
 const path = require('path')
 const port = 3000
-const concurrently = require('concurrently');
+const concurrently = require('concurrently')
 
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended : false }))
 app.use(methodOverride())
 app.use(errorHandler())
+
 app.use(express.static(path.join(__dirname, 'public')))
 
 const Prismic = require('@prismicio/client')
 const PrismicDOM = require('prismic-dom')
+const UAParser = require('ua-parser-js')
 
 const initApi = req => {
   return Prismic.getApi(process.env.PRISMIC_ENDPOINT, {
@@ -49,7 +51,6 @@ const handleLinkResolver = doc => {
     return '/journal'
   }
 
-  console.log(doc)
   return '/'
 }
 
@@ -58,6 +59,13 @@ app.use((req, res, next) => {
   //   endpoint: process.env.PRISMIC_ENDPOINT,
   //   linkResolver: handleLinkResolver
   // }
+  const ua = UAParser(req.headers['user-agent'])
+  res.locals.isDesktop = ua.device.type === undefined
+  res.locals.isPhone = ua.device.type === 'mobile'
+  res.locals.isTablet = ua.device.type ==='tablet'
+
+  console.log(  res.locals.isDesktop, res.locals.isPhone, res.locals.isTablet )
+
   res.locals.Link = handleLinkResolver
 
   res.locals.PrismicDOM = PrismicDOM
@@ -73,12 +81,65 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
 
 const handleRequest = async api => {
+  const about = await api.getSingle('about')
+  const home = await api.getSingle('home')
   const meta = await api.getSingle('meta')
   const navigation = await api.getSingle('navigation')
   const preloader = await api.getSingle('preloader')
 
+  const {results: myths} = await api.query(Prismic.Predicates.at('document.type', 'myths'), {
+    fetchLinks: 'detail.image'
+  })
+  const {results: detail} = await api.query(Prismic.Predicates.at('document.type', 'detail'), {
+    fetchLinks: 'detail.image'
+  })
+
+  const assets = []
+
+  home.data.gallery.forEach(item => {
+    assets.push(item.image.url)
+  })
+
+//  console.log(detail)
+
+  about.data.body.forEach(section => {
+    if (section.slice_type === 'gallery') {
+      section.items.forEach(item => {
+        assets.push(item.image.url)
+      })
+    }
+    if (section.slice_type === 'what_is_myth_creation') {
+      assets.push(section.primary.image.url)
+    }
+    if (section.slice_type === 'content') {
+      assets.push(section.primary.image.url)
+    }
+  })
+
+  myths.forEach(myths => {
+    myths.data.details.forEach(item => {
+      assets.push(item.details_myth.data.image.url)
+    })
+  })
+
+  detail.forEach(detail => {
+    detail.data.body.forEach(section => {
+      if (section.slice_type === 'gallery') {
+        section.items.forEach(item => {
+          assets.push(item.image_detail.url)
+        })
+      }
+    })
+  })
+
+
   return {
+    about,
+    assets,
+    home,
+    detail,
     meta,
+    myths,
     navigation,
     preloader
   }
@@ -87,53 +148,46 @@ const handleRequest = async api => {
 app.get('/', async (req, res) => {
   const api = await initApi(req)
   const defaults = await handleRequest(api)
-  const home = await api.getSingle('home')
 
   // const {results: myths} = await api.query(Prismic.Predicates.at('document.type', 'myths'), {
   //   fetchLinks: 'detail.image'
   // })
   //console.log(home)
   res.render('pages/home', {
-    ...defaults,
-    home,
+    ...defaults
+
   })
 })
 
 app.get('/about', async (req, res) => {
   const api = await initApi(req)
-  const about = await api.getSingle('about')
+
   const defaults = await handleRequest(api)
 
   res.render('pages/about', {
-    ...defaults,
-    about
+    ...defaults
+
   })
 })
 
 app.get('/myths', async (req, res) => {
   const api = await initApi(req)
   const defaults = await handleRequest(api)
-  const home = await api.getSingle('home')
 
-  const {results: myths} = await api.query(Prismic.Predicates.at('document.type', 'myths'), {
-    fetchLinks: 'detail.image'
-  })
-//  console.log(home)
+
   // myths.forEach(myths => {
   //   console.log(myths.data.details[0].details_myth)
   // })
 
   res.render('pages/myths', {
-    ...defaults,
-    home,
-    myths
+    ...defaults
+//    myths
   })
 })
 
 app.get('/journal', async (req, res) => {
   const api = await initApi(req)
   const defaults = await handleRequest(api)
-  const home = await api.getSingle('home')
 
   const {results: journal } = await api.query(Prismic.Predicates.at('document.type', 'post'), {
     fetchLinks: 'post.getByUID',
@@ -144,7 +198,6 @@ app.get('/journal', async (req, res) => {
 
   res.render('pages/journal', {
     ...defaults,
-    home,
     journal
   })
 })
@@ -164,17 +217,33 @@ app.get('/journal', async (req, res) => {
 //   })
 // })
 app.get('/detail/:uid', async (req, res) => {
-  //console.log(req.params.uid)
+  console.log(req.params.uid)
   const api = await initApi(req)
   const defaults = await handleRequest(api)
+  const about = await api.getSingle('about')
 
   const detail = await api.getByUID('detail', req.params.uid, {
     fetchLinks: 'myths.title'
   })
+  // //
+  // api.query( Prismic.Predicates.any('document.type', ['meta', 'detail'])).then(response => {
+  //   const { results } = response
+  //   const [meta, detail] = results
+  //   console.log(meta, detail)
+  //   console.log(detail.data.body)
+  //   detail.data.gallery.forEach(media => {
+  //     console.log(media)
+  //   })
+  //
+  // })
+  //
+  //
+  // //console.log(detail.data)
 
-  //console.log(detail.data)
+
   res.render('pages/detail', {
     ...defaults,
+    about,
     detail
   })
 })

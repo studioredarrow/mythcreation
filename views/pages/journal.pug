@@ -7,16 +7,16 @@ block content
   .journal(data-background="#f6eee3" data-color="ff0000")
     .journal__wrapper
       .journal__information
-        h1.journal__title= 'Journal'
+        h1.journal__title(data-animation="title")= 'Journal'
 
       .journal__posts
         .journal__posts__wrapper
           each post in journal
             .journal__posts__row
 
-              .journal__posts__date=post.data.date
+              .journal__posts__date(data-animation="title")=post.data.date
 
-              a.journal__posts__link(href=`${"/post/"}${post.uid}`)=post.data.title
+              a.journal__posts__link(href=`${"/post/"}${post.uid}` data-animation="title")=post.data.title
 
               .journal__posts__media
 

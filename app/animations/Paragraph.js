@@ -1,7 +1,5 @@
 import GSAP from 'gsap'
 
-import each from 'lodash/each'
-
 import Animation from 'classes/Animation'
 
 import { calculate, split } from 'utils/text'
@@ -24,22 +22,11 @@ export default class Paragraph extends Animation {
       delay: 0.5
     })
 
-    this.timelineIn.set(this.element, {
-      autoAlpha: 1
+    this.timelineIn.to(this.element, {
+      autoAlpha: 1,
+      duration: 1
     })
 
-    each(this.elementsLines, (line, index) => {
-      this.timelineIn.fromTo(line, {
-        autoAlpha: 0,
-        y: '100%'
-      }, {
-        autoAlpha: 1,
-        delay: index * 0.3,
-        duration: 1.5,
-        ease: 'expo.out',
-        y: '-100%'
-      }, 0)
-    })
   }
 
 

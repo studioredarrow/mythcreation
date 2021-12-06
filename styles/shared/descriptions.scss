@@ -4,6 +4,14 @@
   font-style: normal;
   font-weight: normal;
   line-height: 1.5;
+  @include media('<phone') {
+    font-family: $font-object-sans;
+    font-size: 1.3rem;
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: normal;
+    line-height: 1.5;
+  }
 }
 
 %description-12 {
@@ -13,6 +21,14 @@
   text-transform: uppercase;
   font-weight: normal;
   line-height: 1.5;
+  @include media('<phone') {
+    font-family: $font-object-sans;
+    font-size: 1.6rem;
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: normal;
+    line-height: 1.5;
+  }
 }
 
 %description-12-slanted {
@@ -29,6 +45,13 @@
   font-style: normal;
   text-transform: uppercase;
   font-weight: bold;
+  @include media('<phone') {
+    font-family: $font-object-sans;
+    font-size: 2.2rem;
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
 }
 
 %description-12-bold-slanted {
@@ -45,6 +68,13 @@
   font-style: normal;
   text-transform: uppercase;
   font-weight: normal;
+  @include media('<phone') {
+    font-family: $font-object-sans;
+    font-size: 1.8rem;
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: normal;
+  }
 }
 
 %description-16-bold {
@@ -53,6 +83,13 @@
   font-style: normal;
   text-transform: uppercase;
   font-weight: bold;
+  @include media('<phone') {
+    font-family: $font-object-sans;
+    font-size: 3.2rem;
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
 }
 
 %description-16-bold-slanted {
@@ -61,6 +98,13 @@
   font-style: italic;
   text-transform: uppercase;
   font-weight: bold;
+  @include media('<phone') {
+    font-family: $font-object-sans;
+    font-size: 1.8rem;
+    font-style: italic;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
 }
 
 %description-35-bold-slanted {

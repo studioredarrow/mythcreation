@@ -1,3 +1,4 @@
+//import AutoBind from 'auto-bind'
 import EventEmitter from 'events'
 import each from 'lodash/each'
 
@@ -8,6 +9,8 @@ export default class Component extends EventEmitter{
 
   }) {
     super()
+
+  //  AutoBind(this)
 
     this.selector = element
     this.selectorChildren = {
@@ -40,7 +43,6 @@ export default class Component extends EventEmitter{
           this.elements[key] = document.querySelector(entry)
         }
       }
-      console.log(entry)
     })
   }
 

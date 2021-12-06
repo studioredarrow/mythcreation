@@ -14,6 +14,9 @@ html {
   height: 100%;
   position: fixed;
 
+  color: $color-red;
+  background: $color-paper;
+
   overflow: hidden;
 
 
@@ -28,8 +31,13 @@ body {
   font-size: 1.2rem;
   font-style: normal;
   font-weight: normal;
-  color: $color-red;
-  background: $color-paper;
+  @include media('<phone') {
+    font-family: $font-object-sans;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.5;
+  }
 
   left: 0;
   top: 0;
@@ -44,6 +52,12 @@ a {
   text-decoration: none;
 }
 
+canvas {
+  pointer-events: none;
+  position: relative;
+  z-index: z('canvas');
+}
+
 button {
   background: none;
   border: none;
@@ -55,7 +69,7 @@ button {
 //
 img {
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.5s ease;
 
 //  vertical-align: middle;
   &.loaded {
@@ -70,17 +84,51 @@ img {
   height: 100%;
   position: absolute;
 }
+
+[data-animation="marquee"] {
+  opacity: 1;
+  visibility: visible;
+}
+
 [data-animation="highlight"] {
   display: flex;
 
 }
 
-[data-animation="label"],
+[data-animation="label"] {
+  span {
+    display: inline-block; //this one is important for having animations pop per line
+
+    vertical-align: top;
+//    padding-bottom: 2.5rem;
+  }
+}
 [data-animation="paragraph"],
 [data-animation="title"] {
   span {
     display: inline-block; //this one is important for having animations pop per line
     overflow: hidden;
     vertical-align: top;
+//    padding-bottom: 2.5rem;
+  }
+}
+
+[data-animation="title2"] {
+  span {
+    display: inline-block; //this one is important for having animations pop per line
+    overflow: hidden;
+    vertical-align: top;
+    padding-bottom: 3rem;
+  }
+}
+[data-animation="link"] {
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+
+  span {
+    display: inline-block;
+    transform-origin: center center 0.5em;
+    vertical-align: middle;
   }
 }

@@ -1,9 +1,12 @@
 import { Camera, Renderer, Transform } from 'ogl'
 
 import Home from './Home'
+import Detail from './Detail'
 
 export default class Canvas {
-  constructor () {
+  constructor ({ template }) {
+    this.template = template
+
     this.x = {
       start: 0,
       distance: 0,
@@ -22,7 +25,7 @@ export default class Canvas {
 
     this.onResize()
 
-    this.createHome()
+//    this.createHome()
   }
 
   createRenderer () {
@@ -45,21 +48,10 @@ export default class Canvas {
     this.scene = new Transform()
   }
 
+  // HOME***
+
   createHome () {
 
-    // this.geometry = new Box(this.gl)
-    //
-    // this.program = new Program(this.gl, {
-    //   vertex,
-    //   fragment
-    // })
-    //
-    // this.mesh = new Mesh(this.gl, {
-    //   geometry: this.geometry,
-    //   program: this.program
-    // })
-    //
-    // this.mesh.setParent(this.scene)
     this.home = new Home({
       gl: this.gl,
       scene: this.scene,
@@ -68,7 +60,89 @@ export default class Canvas {
 
   }
 
+  destroyHome () {
+    if (!this.home) return
+
+    this.home.destroy()
+    this.home = null
+  }
+
+//DETAIL ***
+
+  createDetail () {
+    this.detail = new Detail({
+      gl: this.gl,
+      scene: this.scene,
+      sizes: this.sizes
+    })
+  }
+
+  destroyDetail () {
+    if (!this.detail) return
+
+    this.detail.destroy()
+    this.detail = null
+  }
+
+  // //MYTHS ***
+  //
+  // createMyths () {
+  //   this.myths = new Myths({
+  //     gl: this.gl,
+  //     scene: this.scene,
+  //     sizes: this.sizes
+  //   })
+  // }
+  //
+  // destroyMyths () {
+  //   if (!this.myths) return
+  //
+  //   this.myths.destroy()
+  //   this.myths = null
+  // }
+
   //EVENTS***
+
+  onPreloaded () {
+
+    this.onChangeEnd(this.template)
+  }
+
+  onChangeStart () {
+    if (this.detail) {
+      this.detail.hide()
+    }
+
+
+    if (this.home) {
+      this.home.hide()
+    }
+
+    // if (this.myths) {
+    //   this.myths.hide()
+    // }
+  }
+
+  onChangeEnd (template) {
+    if (template === 'detail') {
+      this.createDetail()
+    } else if (this.detail) {
+      this.destroyDetail()
+    }
+
+    if (template === 'home') {
+      this.createHome()
+    } else {
+      this.destroyHome()
+    }
+
+
+    // if (template === 'myths') {
+    //   this.createMyths()
+    // } else if (this.myths) {
+    //   this.destroyMyths()
+    // }
+  }
 
   onResize () {
     this.renderer.setSize(window.innerWidth, window.innerHeight)
@@ -85,12 +159,21 @@ export default class Canvas {
       height,
       width
     }
-
-    if (this.home) {
-      this.home.onResize({
-        sizes: this.sizes
-      })
+    const values = {
+      sizes: this.sizes
     }
+
+
+    if (this.detail) {
+      this.detail.onResize(values)
+    }
+    if (this.home) {
+      this.home.onResize(values)
+    }
+
+    // if (this.myths) {
+    //   this.myths.onResize(values)
+    // }
   }
 
   onTouchDown (event) {
@@ -99,12 +182,23 @@ export default class Canvas {
     this.x.start = event.touches ? event.touches[0].clientX : event.clientX
     this.y.start = event.touches ? event.touches[0].clientY : event.clientY
 
-    if (this.home) {
-      this.home.onTouchDown({
-         x: this.x,
-         y: this.y
-      })
+    const values = {
+      x: this.x,
+      y: this.y
     }
+
+    if (this.detail) {
+      this.detail.onTouchDown(values)
+    }
+
+    if (this.home) {
+      this.home.onTouchDown(values)
+    }
+
+    // if (this.myths) {
+    //   this.myths.onTouchDown(values)
+    // }
+
 
   }
 
@@ -114,15 +208,25 @@ export default class Canvas {
     const x = event.touches ? event.touches[0].clientX : event.clientX
     const y = event.touches ? event.touches[0].clientY : event.clientY
 
-    this.x.end =x
+    this.x.end = x
     this.y.end = y
 
-    if (this.home) {
-      this.home.onTouchMove({
-         x: this.x,
-         y: this.y
-      })
+    const values = {
+      x: this.x,
+      y: this.y
     }
+
+    if (this.detail) {
+      this.detail.onTouchMove(values)
+    }
+
+    if (this.home) {
+      this.home.onTouchMove(values)
+    }
+
+    // if (this.myths) {
+    //   this.myths.onTouchMove(values)
+    // }
 
   }
 
@@ -135,12 +239,22 @@ export default class Canvas {
     this.x.end = x
     this.y.end = y
 
-    if (this.home) {
-      this.home.onTouchMove({
-         x: this.x,
-         y: this.y
-      })
+    const values = {
+      x: this.x,
+      y: this.y
     }
+
+    if (this.detail) {
+      this.detail.onTouchUp(values)
+    }
+
+    if (this.home) {
+      this.home.onTouchUp(values)
+    }
+
+    // if (this.myths) {
+    //   this.myths.onTouchUp(values)
+    // }
 
   }
 
@@ -148,17 +262,26 @@ export default class Canvas {
     if (this.home) {
       this.home.onWheel(event)
     }
-
+    // if (this.myths) {
+    //   this.myths.onWheel(event)
+    // }
   }
 
   //LOOP***
 
-  update() {
+  update(scroll) {
+
+    if (this.detail) {
+      this.detail.update(scroll)
+    }
+
     if (this.home) {
       this.home.update()
     }
-    // this.mesh.rotation.x += 0.01
-    // this.mesh.rotation.y += 0.01
+        //
+        // if (this.myths) {
+        //   this.myths.update(scroll)
+        // }
 
     this.renderer.render({
       camera: this.camera,

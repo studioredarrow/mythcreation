@@ -32,6 +32,12 @@
   margin-top: 5rem;
   width: 45rem;
 
+  li {
+    display: list-item;
+    list-style-type: disc;
+    list-style-position: inside;
+
+  }
 }
 
 //The image
@@ -40,9 +46,7 @@
   bottom: 80%;
   margin-left: 40%;
   z-index: -1;
-  &:last-child {
-    margin-right: 52rem;
-  }
+
 }
 
 

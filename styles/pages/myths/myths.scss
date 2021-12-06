@@ -33,6 +33,11 @@
   @extend %title-160;
   height: 20rem;
   border-bottom: 1px solid $color-red;
+
+  span {
+    transform: translateY(4rem);
+  }
+
 }
 
 
@@ -55,11 +60,15 @@
   &:last-child{
     margin-bottom: 10rem;
   }
+
 }
 .myths__gallery__media{
   // width: 100vw;
   // display: flex;
+  @include media('<phone') {
 
+    margin-bottom: 5rem;
+  }
 }
 
 .myths__gallery__media__image{
@@ -69,6 +78,14 @@
   object-fit: cover;
   // margin-left: 5rem;
   // margin-right: 5rem;
+  opacity: 1;
+
+  filter:  grayscale(1) contrast(0.95) url(#gamma-red);
+  transition: 0.3s ease;
+  &:hover {
+    opacity: 1;
+    filter: none;
+  }
 
 }
 

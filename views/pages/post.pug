@@ -18,8 +18,8 @@ block content
 
       each section in post.data.body
         if section.slice_type == 'title'
-          h2.post__title(data-animation="title")=section.primary.important
-
+          .post__title__wrapper
+            h2.post__title(data-animation="title2")=section.primary.important
 
         if section.slice_type == 'image_with_caption'
           section.post__header

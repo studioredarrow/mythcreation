@@ -17,6 +17,13 @@ block content
                 figure.myths__gallery__media
                   img.myths__gallery__media__image(alt=detail.details_myth.data.image.alt data-src=detail.details_myth.data.image.url)
 
+                  svg.defs-only
+                    filter#gamma-red(color-interpolation-filters='sRGB' x='0' y='0' height='100%' width='100%')
+                      fecomponenttransfer
+                        fefuncr(type='gamma' exponent='0.01')
+                          fefuncg(type='gamma' exponent='1.0')
+                            fefuncb(type='gamma' exponent='1.0')
+
     //.myths__content
       each myth in myths
         article.myths__article
