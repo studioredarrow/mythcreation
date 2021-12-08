@@ -11,11 +11,11 @@ import Highlight from 'animations/Highlight'
 import Title from 'animations/Title'
 import Title2 from 'animations/Title2'
 import Paragraph from 'animations/Paragraph'
-// import News from 'animations/News'
+
 import Label from 'animations/Label'
 import Link from 'animations/Link'
 import Gallery from 'animations/Gallery'
-import Post from 'animations/Post'
+import Marqpost from 'animations/Post'
 import Marquee from 'animations/Marquee'
 
 import AsyncLoad from 'classes/AsyncLoad'
@@ -41,7 +41,7 @@ export default class Page {
       animationsLinks: '[data-animation="link"]',
       animationsParagraphs: '[data-animation="paragraph"]',
       animationsGallery: '[data-animation="gallery"]',
-    //  animationsPost: '[data-animation="post"]',
+      animationsPost: '[data-animation="post"]',
       animationsMarquee: '[data-animation="marquee"]',
 
       preloaders: '[data-src]'
@@ -142,14 +142,14 @@ export default class Page {
 
     this.animations.push(...this.animationsMarquee)
 
-    // //Post
-    // this.animationsPost = map(this.elements.animationsPost, element => {
-    //   return new Post({
-    //     element
-    //   })
-    // })
-    //
-    // this.animations.push(...this.animationsPost)
+    //Post
+    this.animationsPost = map(this.elements.animationsPost, element => {
+      return new Marqpost({
+        element
+      })
+    })
+
+    this.animations.push(...this.animationsPost)
 
 
 

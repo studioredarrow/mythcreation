@@ -49,6 +49,7 @@
   @extend %title-35;
   width: 25rem;
   margin-left: 7rem;
+  margin-right: 0;
   @include media('<phone') {
     margin-right: 5rem;
     margin-left: 0;
@@ -57,7 +58,7 @@
 
 .detail__information__artwork__description{
   @extend %description-10;
-
+  width: 40rem;
   padding-bottom: 4rem;
 
   p:not(:first-child) {

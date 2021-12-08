@@ -32,8 +32,8 @@ export default class Navigation extends Component {
     //     })
     //   }
     // })
-    console.log(this.elements.items[0])
-    console.log(template)
+//    console.log(this.elements.items[0])
+  //  console.log(template)
     if (template == 'about') {
       // GSAP.to(this.element, {
       //   color: COLOR_RED,

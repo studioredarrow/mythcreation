@@ -11,6 +11,7 @@
   display: block;
   overflow: scroll;
   position: relative;
+  padding-bottom: 15rem;
 //  background: $color-paper;
 }
 
@@ -82,27 +83,26 @@
   will-change: transform;
   margin-top: 10%;
   margin-bottom: 4rem;
-//  left: 0;
-  justify-content: center;
+//  justify-content: center;
   line-height: 1;
+  padding: 0;
   &:first-child {
 
     margin-top:15rem;
 
   }
 }
-.post__title{
+.post__title {
 
   @extend %title-160;
 
-  //color: $color-emboss;
-
-  align-items: center;
+//  align-items: center;
   //justify-content: margin-left;
   display:inline-block;
-//  padding-right: 300px;
 
-
+  margin-left: 20rem;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 
@@ -178,6 +178,7 @@
   // a &:link:hover {
   //   text-decoration: underline;
   // }
+
 
 }
 

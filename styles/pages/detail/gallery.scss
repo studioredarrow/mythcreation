@@ -4,9 +4,7 @@
   position: relative;
   pointer-events: none;
   visibility: hidden;
-  @include media('<phone') {
-    flex-direction: column;
-  }
+
 }
 
 .detail__information__gallery__wrapper {

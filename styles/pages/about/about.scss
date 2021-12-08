@@ -99,7 +99,7 @@
 
 .about__question__wrapper {
   position: absolute;
-  margin-left: 7rem;
+  margin-left: 6rem;
   white-space: nowrap;
   padding: 0;
   pointer-events: none;
@@ -108,14 +108,14 @@
   will-change: transform;
 }
 
-.about__title__question{
+.about__title__murtaza__question{
   @extend %title-160;
   display: inline-block;
   // flex-direction: row;
-  //text-align: right;
+  text-align: left;
   visibility: visible !important;
   opacity: 1 !important;
-  margin-left: 300px;
+  margin-left: 40rem;
 
 }
 

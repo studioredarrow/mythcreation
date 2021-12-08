@@ -1,81 +1,74 @@
 import GSAP from 'gsap'
 
-import each from 'lodash/each'
-
 import Animation from 'classes/Animation'
 
 import { calculate, split } from 'utils/text'
 
-export default class Post extends Animation {
+export default class Marqpost extends Animation {
   constructor ({element, elements}) {
     super({
       element,
-      elements: {
-        wrapper: '.post__title__wrapper',
-        text: '.post__title'
-      }
+      elements
     })
-    split({ element: this.element, append: true})
-    split({ element: this.element, append: true})
-
-    this.elementLinesSpans = this.element.querySelectorAll('span span')
 
   }
 
   animateIn () {
-    const dur = 5
 
-    this.elements.wrapper = document.querySelector('.post__title__wrapper')
-    this.elements.wrapper.width = this.elements.wrapper.clientWidth
-    console.log(this.elements.wrapper.width)
+    const dur = 20;
+    const wrap = GSAP.utils.wrap(0, 1);
+    const ticker = document.querySelectorAll('.post__title__wrapper');
+    //document.querySelectorAll('.js-ticker .wrapper').forEach(ticker => {
+    document.querySelectorAll('.post__title__wrapper').forEach(ticker => {
+      let x = ticker;
+      let prop = window.getComputedStyle(ticker, null);
 
-    each(this.elements.wrapper, ticker => {
+  //    console.log(`Width is ; ${ parseInt(prop.width, 10)   }`)
+      totalDistance = parseInt(prop.width, 10);
+      //totalDistance = totalDistance / 2;
 
-      // Get the initial size of the ticker
-      const totalDistance = this.elements.wrapper.width // Position the ticker
-      console.log(totalDistance)
-      GSAP.set(ticker, {
-        yPercent: -50
-      }); // Clone the first item and add it to the end
+      console.log(`Total: ${totalDistance}`);
+      let totalDistance;
+      ticker.append((ticker.querySelector(".post__title")).cloneNode(true));
+  //    console.log(ticker)
+      const item = ticker.querySelector(".post__title");
+  //    console.log(`totalDistance: ${totalDistance}`)
+      let anim;
+      let startPos;
 
-      this.anim = GSAP.to(ticker, {
-        duration: dur,
-        x: -totalDistance,
-        ease: "none",
-        repeat: -1
-      });
-      let startPos
-      this.wrap = GSAP.utils.wrap(0, 1)
-      // let draggable = new Draggable(ticker, {
-      //   type: "x",
-      //   trigger: this.ticker,
-      //   throwProps: true,
-      //   onPressInit: function () {
-      //     this.anim.pause(),
-      //     startPos = this.x
-      //   },
-      //   onDrag: function () {
-      //     this.prog = wrap(-this.x / totalDistance),
-      //     this.anim.progress(this.prog)
-      //   },
-      //   onThrowUpdate: function () {
-      //     this.prog = wrap(-this.x / totalDistance),
-      //     this.anim.progress(this.prog)
-      //   },
-      //   onThrowComplete: function () {
-      //     this.anim.play(),
-      //     GSAP.fromTo(this.anim, {
-      //       timeScale: 0
-      //     }, {
-      //       duration: 1,
-      //       timeScale: 1,
-      //       ease: "none"
-      //     })
-      //   }
-      // })
+      this.timelineIn = GSAP.timeline({
+        delay: 0.5
+      })
+      function resize(par) {
+
+        if(anim) anim.play(0);
+        let x = ticker;
+        let prop = window.getComputedStyle(ticker, null);
+
+        totalDistance = parseInt(prop.width, 10);
+        //totalDistance = totalDistance / 2;
+
+        anim = GSAP.to(ticker, {
+          duration: dur,
+          x: -totalDistance,
+          ease: "none",
+          repeat: -1,
+          overwrite: true
+        });
+      }
+
+      window.addEventListener('resize', resize);
+
+
+      resize();
+
     })
-  }
 
+
+
+
+
+  }
 
   animateOut () {
     GSAP.set(this.element, {
@@ -84,8 +77,15 @@ export default class Post extends Animation {
   }
 
   onResize () {
-    this.elementsLines = calculate(this.elementLinesSpans)
-    //console.log(this.elementsLines)
+
   }
 
 }
+
+
+
+
+  //$(window).resize(resize);
+
+
+// });
