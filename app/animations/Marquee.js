@@ -81,6 +81,7 @@ export default class Marquee extends Animation {
           ease: "none",
           repeat: -1,
           overwrite: true
+
         });
       }
 

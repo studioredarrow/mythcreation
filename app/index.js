@@ -1,3 +1,4 @@
+//import 'utils/polyfill'
 import each from 'lodash/each'
 
 import NormalizeWheel from 'normalize-wheel'
@@ -94,8 +95,8 @@ class App {
   }
 
   async onChange ({ url, push = true }) {
-    // url = url.replace(window.location.origin, '')
-    // const page = this.pages[url]
+    url = url.replace(window.location.origin, '')
+    const page = this.pages[url]
 
     this.canvas.onChangeStart(this.template)
     await this.page.hide()
