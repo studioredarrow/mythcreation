@@ -132,7 +132,7 @@
   @extend %description-16-bold;
   width: 15rem;
 //  line-height: 1;
-  margin-bottom: 7rem;
+  margin-bottom: 10rem;
   pointer-events: auto;
   transition: opacity 0.4s ease;
 
@@ -145,7 +145,7 @@
     width: 15rem;
     display: block;
     justify-content: center;
-    bottom: 4rem;
+    bottom: 7rem;
     @include media('<phone') {
       transform: translateY(6rem);
       bottom: 5rem;

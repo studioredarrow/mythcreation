@@ -95,45 +95,54 @@ class App {
   }
 
   async onChange ({ url, push = true }) {
-    url = url.replace(window.location.origin, '')
-    const page = this.pages[url]
+    //If the URl contains localhost:3000
+    if(url.includes(window.location.origin)) { //URL is local
 
-    this.canvas.onChangeStart(this.template)
-    await this.page.hide()
 
-    const request = await window.fetch(url)
+      url = url.replace(window.location.origin, '')
+      this.canvas.onChangeStart(this.template)
+      //  const page = this.pages[url]
 
-    if (request.status === 200) {
-      const html = await request.text()
-      const div = document.createElement('div')
+      await this.page.hide()
 
-      if (push) {
-        window.history.pushState({}, '', url)
+      const request = await window.fetch(url)
+
+      if (request.status === 200) {
+        const html = await request.text()
+        const div = document.createElement('div')
+
+        if (push) {
+          window.history.pushState({}, '', url)
+        }
+
+        div.innerHTML = html
+
+        const divContent = div.querySelector('.content')
+
+        this.template = divContent.getAttribute('data-template')
+
+        this.navigation.onChange(this.template)
+
+        this.content.setAttribute('data-template', this.template)
+        this.content.innerHTML = divContent.innerHTML
+
+        this.canvas.onChangeEnd(this.template)
+
+        this.page = this.pages[this.template]
+        this.page.create()
+
+        this.onResize()
+
+        this.page.show()
+
+        this.addLinkListeners()
+      } else {
+        console.log('Error')
       }
 
-      div.innerHTML = html
-
-      const divContent = div.querySelector('.content')
-
-      this.template = divContent.getAttribute('data-template')
-
-      this.navigation.onChange(this.template)
-
-      this.content.setAttribute('data-template', this.template)
-      this.content.innerHTML = divContent.innerHTML
-
-      this.canvas.onChangeEnd(this.template)
-
-      this.page = this.pages[this.template]
-      this.page.create()
-
-      this.onResize()
-
-      this.page.show()
-
-      this.addLinkListeners()
     } else {
-      console.log('Error')
+
+      window.location.href = url
     }
 
   }

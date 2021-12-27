@@ -1,6 +1,7 @@
 import Component from 'classes/Component'
 
 export default class Animation extends Component{
+  //Constructor gets called everytime a new object is created
   constructor ({ element, elements }) {
     super({
       element,

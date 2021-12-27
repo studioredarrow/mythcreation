@@ -24,8 +24,8 @@ export default class Canvas {
     this.createScene()
 
     this.onResize()
-
-//    this.createHome()
+    // this.onChangeEnd()
+    // this.onChangeStart()
   }
 
   createRenderer () {
@@ -109,14 +109,15 @@ export default class Canvas {
   }
 
   onChangeStart () {
+    if (this.home) {
+      this.home.hide()
+    }
+
     if (this.detail) {
       this.detail.hide()
     }
 
 
-    if (this.home) {
-      this.home.hide()
-    }
 
     // if (this.myths) {
     //   this.myths.hide()
@@ -124,11 +125,6 @@ export default class Canvas {
   }
 
   onChangeEnd (template) {
-    if (template === 'detail') {
-      this.createDetail()
-    } else if (this.detail) {
-      this.destroyDetail()
-    }
 
     if (template === 'home') {
       this.createHome()
@@ -137,6 +133,11 @@ export default class Canvas {
     }
 
 
+    if (template === 'detail') {
+      this.createDetail()
+    } else if (this.detail) {
+      this.destroyDetail()
+    }
     // if (template === 'myths') {
     //   this.createMyths()
     // } else if (this.myths) {
@@ -163,12 +164,12 @@ export default class Canvas {
       sizes: this.sizes
     }
 
+    if (this.home) {
+      this.home.onResize(values)
+    }
 
     if (this.detail) {
       this.detail.onResize(values)
-    }
-    if (this.home) {
-      this.home.onResize(values)
     }
 
     // if (this.myths) {
@@ -186,14 +187,14 @@ export default class Canvas {
       x: this.x,
       y: this.y
     }
+    if (this.home) {
+      this.home.onTouchDown(values)
+    }
 
     if (this.detail) {
       this.detail.onTouchDown(values)
     }
 
-    if (this.home) {
-      this.home.onTouchDown(values)
-    }
 
     // if (this.myths) {
     //   this.myths.onTouchDown(values)
@@ -216,13 +217,14 @@ export default class Canvas {
       y: this.y
     }
 
+    if (this.home) {
+      this.home.onTouchMove(values)
+    }
+
     if (this.detail) {
       this.detail.onTouchMove(values)
     }
 
-    if (this.home) {
-      this.home.onTouchMove(values)
-    }
 
     // if (this.myths) {
     //   this.myths.onTouchMove(values)
@@ -244,13 +246,14 @@ export default class Canvas {
       y: this.y
     }
 
+    if (this.home) {
+      this.home.onTouchUp(values)
+    }
+
     if (this.detail) {
       this.detail.onTouchUp(values)
     }
 
-    if (this.home) {
-      this.home.onTouchUp(values)
-    }
 
     // if (this.myths) {
     //   this.myths.onTouchUp(values)
@@ -270,14 +273,14 @@ export default class Canvas {
   //LOOP***
 
   update(scroll) {
+    if (this.home) {
+      this.home.update()
+    }
 
     if (this.detail) {
       this.detail.update(scroll)
     }
 
-    if (this.home) {
-      this.home.update()
-    }
         //
         // if (this.myths) {
         //   this.myths.update(scroll)

@@ -13,7 +13,7 @@ import Title2 from 'animations/Title2'
 import Paragraph from 'animations/Paragraph'
 
 import Label from 'animations/Label'
-import Link from 'animations/Link'
+//import Link from 'animations/Link'
 import Gallery from 'animations/Gallery'
 import Marqpost from 'animations/Post'
 import Marquee from 'animations/Marquee'

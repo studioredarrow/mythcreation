@@ -104,6 +104,7 @@ export default class {
 
     map(this.medias, media => media.onResize(event, this.scroll, this.galleryBounds))
 
+  //  map(this.medias, media => media.onResize(event, this.scroll))
   }
 
   onTouchDown ({ x, y }) {
@@ -153,7 +154,7 @@ export default class {
       this.y.direction = 'bottom'
     }
 
-  //  this.galleryWidth = this.galleryBounds.width / window.innerWidth * this.sizes.width
+    this.galleryWidth = this.galleryBounds.width / window.innerWidth * this.sizes.width
 
     this.scroll.x = this.x.current
     this.scroll.y = this.y.current
@@ -162,7 +163,7 @@ export default class {
 
     map(this.medias, (media, index) => {
 
-      const offsetX = this.sizes.width * 0.6
+      const offsetX = this.sizes.width * 0.75
       const scaleX = media.mesh.scale.x / 2
 
 
@@ -184,7 +185,7 @@ export default class {
         }
       }
 
-      const offsetY = this.sizes.height * 0.6
+      const offsetY = this.sizes.height * 0.75
       const scaleY = media.mesh.scale.y / 2
 
       if (this.y.direction === 'top') {

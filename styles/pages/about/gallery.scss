@@ -15,7 +15,7 @@
   @include media('<phone') {
     display: grid;
     grid-template-columns: 25rem 25rem 25rem;
-    grid-template-rows: 32rem 32rem 32rem 32rem;
+    grid-template-rows: 20rem 20rem 20rem 20rem;
   }
 }
 
@@ -41,4 +41,8 @@
   display: flex;
   top: 60%;
   right: 0;
+  @include media('<phone') {
+    right: 37rem;
+    top: 65%;
+  }
 }

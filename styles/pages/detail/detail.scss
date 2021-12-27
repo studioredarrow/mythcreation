@@ -11,7 +11,7 @@
   @extend %center;
 //  position: relative;
   width: 100%;
-  overflow: hidden;
+//  overflow: hidden;
   display:block;
 
   @include media('<phone') {
@@ -25,7 +25,7 @@
 }
 .detail__media__image{
   width: 100%;
-  max-height: 100%;
+  height: 100%;
   object-fit: cover;
 
 }

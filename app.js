@@ -157,19 +157,13 @@ app.get('/', async (req, res) => {
   const api = await initApi(req)
   const defaults = await handleRequest(api)
 
-  // const {results: myths} = await api.query(Prismic.Predicates.at('document.type', 'myths'), {
-  //   fetchLinks: 'detail.image'
-  // })
-  //console.log(home)
   res.render('pages/home', {
-    ...defaults
-
+    ...defaults,
   })
 })
 
 app.get('/about', async (req, res) => {
   const api = await initApi(req)
-
   const defaults = await handleRequest(api)
 
   res.render('pages/about', {

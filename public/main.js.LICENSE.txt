@@ -9,30 +9,10 @@
 */
 
 /*!
- * CustomEase 3.5.1
- * https://greensock.com
- *
- * @license Copyright 2008-2020, GreenSock. All rights reserved.
- * Subject to the terms at https://greensock.com/standard-license or for
- * Club GreenSock members, the agreement issued with that membership.
- * @author: Jack Doyle, jack@greensock.com
-*/
-
-/*!
  * GSAP 3.8.0
  * https://greensock.com
  *
  * @license Copyright 2008-2021, GreenSock. All rights reserved.
- * Subject to the terms at https://greensock.com/standard-license or for
- * Club GreenSock members, the agreement issued with that membership.
- * @author: Jack Doyle, jack@greensock.com
-*/
-
-/*!
- * paths 3.8.0
- * https://greensock.com
- *
- * Copyright 2008-2021, GreenSock. All rights reserved.
  * Subject to the terms at https://greensock.com/standard-license or for
  * Club GreenSock members, the agreement issued with that membership.
  * @author: Jack Doyle, jack@greensock.com
@@ -69,6 +49,8 @@
 /*! ./Mat4.js */
 
 /*! ./Media */
+
+/*! ./Menu */
 
 /*! ./Transform.js */
 
@@ -392,8 +374,6 @@
 
 /*! animations/Label */
 
-/*! animations/Link */
-
 /*! animations/Marquee */
 
 /*! animations/Paragraph */
@@ -435,8 +415,6 @@
 /*! events */
 
 /*! gsap */
-
-/*! gsap/utils/paths */
 
 /*! html-entities */
 
@@ -482,11 +460,7 @@
 
 /*! url */
 
-/*! utils/CustomEase */
-
 /*! utils/colors */
-
-/*! utils/easings */
 
 /*! utils/text */
 
@@ -524,10 +498,6 @@
   !*** ./app/classes/Arrow.js ***!
   \******************************/
 
-/*!******************************!*\
-  !*** ./app/utils/easings.js ***!
-  \******************************/
-
 /*!*******************************!*\
   !*** ./app/classes/Button.js ***!
   \*******************************/
@@ -535,10 +505,6 @@
 /*!*******************************!*\
   !*** ./app/classes/Colors.js ***!
   \*******************************/
-
-/*!********************************!*\
-  !*** ./app/animations/Link.js ***!
-  \********************************/
 
 /*!********************************!*\
   !*** ./app/animations/Post.js ***!
@@ -558,10 +524,6 @@
 
 /*!*********************************!*\
   !*** ./app/pages/Post/index.js ***!
-  \*********************************/
-
-/*!*********************************!*\
-  !*** ./app/utils/CustomEase.js ***!
   \*********************************/
 
 /*!*********************************!*\
@@ -659,10 +621,6 @@
 /*!*************************************!*\
   !*** ./node_modules/lodash/keys.js ***!
   \*************************************/
-
-/*!**************************************!*\
-  !*** ./app/components/Navigation.js ***!
-  \**************************************/
 
 /*!**************************************!*\
   !*** ./app/shaders/home-vertex.glsl ***!
@@ -825,10 +783,6 @@
       \******************************************/
 
 /*!******************************************!*\
-  !*** ./node_modules/gsap/utils/paths.js ***!
-  \******************************************/
-
-/*!******************************************!*\
   !*** ./node_modules/lodash/_DataView.js ***!
   \******************************************/
 
@@ -895,6 +849,10 @@
 /*!******************************************!*\
   !*** ./node_modules/lodash/stubFalse.js ***!
   \******************************************/
+
+/*!*******************************************!*\
+  !*** ./app/components/Navigation/Menu.js ***!
+  \*******************************************/
 
 /*!*******************************************!*\
   !*** ./node_modules/lodash/_ListCache.js ***!
@@ -971,6 +929,10 @@
 /*!********************************************!*\
       !*** ./client-src/modules/logger/index.js ***!
       \********************************************/
+
+/*!********************************************!*\
+  !*** ./app/components/Navigation/index.js ***!
+  \********************************************/
 
 /*!********************************************!*\
   !*** ./node_modules/lodash/_Uint8Array.js ***!

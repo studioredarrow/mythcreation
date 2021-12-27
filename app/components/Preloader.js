@@ -15,7 +15,7 @@ export default class Preloader extends Component {
         title: '.preloader__text',
         number: '.preloader__number',
         numberText: '.preloader__number__text'
-//        images: document.querySelectorAll('img')
+
       }
 
     })
@@ -45,8 +45,8 @@ export default class Preloader extends Component {
 
   createLoader () {
     window.ASSETS.forEach(image => {
-      const texture = new Texture(this.canvas.gl, {
-        generateMipmaps: false
+      const texture = new Texture (this.canvas.gl, {
+        generateMipmaps: true
       })
 
       const media = new window.Image()

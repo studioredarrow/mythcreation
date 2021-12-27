@@ -1,7 +1,7 @@
 import GSAP from 'gsap'
 import Animation from 'classes/Animation'
 
-import { DEFAULT } from 'utils/easings'
+import { IMAGE as ease } from 'utils/easings'
 import { split } from 'utils/text'
 
 export default class extends Animation {
@@ -51,7 +51,9 @@ export default class extends Animation {
       })
     }
 
-    this.timeline = GSAP.timeline({ paused: true })
+    this.timeline = GSAP.timeline(
+      { paused: true }
+    )
 
     this.timeline.to(this.elements.textSpans, {
       duration: 0.5,

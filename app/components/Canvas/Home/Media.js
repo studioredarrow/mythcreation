@@ -22,15 +22,16 @@ export default class {
     this.createTexture()
     this.createProgram()
     this.createMesh()
-    this.createBounds({
-      sizes: this.sizes
-    })
+    // this.createBounds({
+    //   sizes: this.sizes
+    // })
 
   }
 
   createTexture () {
     const image = this.element
     this.texture = window.TEXTURES[image.getAttribute('data-src')]
+
   }
 
   createProgram () {
@@ -54,7 +55,7 @@ export default class {
 
     this.mesh.setParent(this.scene)
     //to rotate the images slightly randomly
-    this.mesh.rotation.z = GSAP.utils.random(-Math.PI * 0.02, Math.PI * 0.02)
+    this.mesh.rotation.z = GSAP.utils.random(-Math.PI * 0.03, Math.PI * 0.03)
   //  this.mesh.position.x += this.index * this.mesh.scale.x
   }
 

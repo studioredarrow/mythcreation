@@ -9,7 +9,7 @@ block content
         img.detail__media__image(alt=detail.data.image.alt data-src=detail.data.image.url)
 
       .detail__information
-        p.detail__information__myth(data-animation="highlight")=detail.data.myths.data.title
+        p.detail__information__myth(data-animation="highlight")!=detail.data.myths.data.title.replace(/\n/, '<br>')
 
 
 
@@ -51,7 +51,8 @@ block content
               strong.detail__information__item__title(data-animation='label')=item.information_label
               span.detail__information__item__description(data-animation='paragraph')=item.information_description
 
-        a.detail__information__link(data-animation="label" href=detail.data.link_url.url target="_blank")
+        a.detail__information__link(href=detail.data.link_url.url target="_blank")=detail.data.link_text
+        //a.detail__information__link(data-animation="label" href=detail.data.link_url.url target="_blank")
           span=detail.data.link_text
 
         a.detail__button(href=Link(about.data.myths))  Close
